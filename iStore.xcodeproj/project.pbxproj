@@ -8,17 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		410545622B5803BB0033915C /* iStoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410545612B5803BB0033915C /* iStoreApp.swift */; };
-		410545642B5803BB0033915C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410545632B5803BB0033915C /* ContentView.swift */; };
+		410545642B5803BB0033915C /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410545632B5803BB0033915C /* Home.swift */; };
 		410545662B5803BD0033915C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 410545652B5803BD0033915C /* Assets.xcassets */; };
 		410545692B5803BD0033915C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 410545682B5803BD0033915C /* Preview Assets.xcassets */; };
+		41BAFF412B77BDC5009081CA /* LocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BAFF402B77BDC5009081CA /* LocationButton.swift */; };
+		41DC6E222B77DB3D0061D06A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DC6E212B77DB3D0061D06A /* ContentView.swift */; };
+		41FE9FE22B76028C005CAE27 /* ProductsGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FE9FE12B76028C005CAE27 /* ProductsGrid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4105455E2B5803BB0033915C /* iStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		410545612B5803BB0033915C /* iStoreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iStoreApp.swift; sourceTree = "<group>"; };
-		410545632B5803BB0033915C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		410545632B5803BB0033915C /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		410545652B5803BD0033915C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		410545682B5803BD0033915C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		41BAFF402B77BDC5009081CA /* LocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationButton.swift; sourceTree = "<group>"; };
+		41DC6E212B77DB3D0061D06A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		41FE9FE12B76028C005CAE27 /* ProductsGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsGrid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +58,8 @@
 			isa = PBXGroup;
 			children = (
 				410545612B5803BB0033915C /* iStoreApp.swift */,
-				410545632B5803BB0033915C /* ContentView.swift */,
+				41BAFF3F2B77BD76009081CA /* Home */,
+				41DC6E212B77DB3D0061D06A /* ContentView.swift */,
 				410545652B5803BD0033915C /* Assets.xcassets */,
 				410545672B5803BD0033915C /* Preview Content */,
 			);
@@ -65,6 +72,16 @@
 				410545682B5803BD0033915C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		41BAFF3F2B77BD76009081CA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				410545632B5803BB0033915C /* Home.swift */,
+				41FE9FE12B76028C005CAE27 /* ProductsGrid.swift */,
+				41BAFF402B77BDC5009081CA /* LocationButton.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +154,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				410545642B5803BB0033915C /* ContentView.swift in Sources */,
+				41BAFF412B77BDC5009081CA /* LocationButton.swift in Sources */,
+				41DC6E222B77DB3D0061D06A /* ContentView.swift in Sources */,
+				410545642B5803BB0033915C /* Home.swift in Sources */,
 				410545622B5803BB0033915C /* iStoreApp.swift in Sources */,
+				41FE9FE22B76028C005CAE27 /* ProductsGrid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
