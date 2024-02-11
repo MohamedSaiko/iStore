@@ -13,19 +13,17 @@ struct Home: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
                 VStack() {
                     LocationButton()
+                    
+                    Spacer()
                     
                     ProductsGrid()
                 }
                 .searchable(text: $text)
-                .padding()
-                .background(.regularMaterial)
+                .padding(.horizontal)
                 .navigationTitle("iStore")
             }
-            .background(.gray)
-        }
     }
 }
 

@@ -21,7 +21,7 @@ struct ProductsGrid: View {
                     } label: {
                         VStack(alignment: .center) {
                             Image(systemName: "rectangle.portrait.fill")
-                                .frame(width: 80, height: 114, alignment: .center)
+                                .frame(minWidth: 80, minHeight: 114, alignment: .center)
                                 .font(.largeTitle)
                                 .foregroundColor(.green)
                                 .background(.green)

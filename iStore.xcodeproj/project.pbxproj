@@ -11,6 +11,7 @@
 		410545642B5803BB0033915C /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410545632B5803BB0033915C /* Home.swift */; };
 		410545662B5803BD0033915C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 410545652B5803BD0033915C /* Assets.xcassets */; };
 		410545692B5803BD0033915C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 410545682B5803BD0033915C /* Preview Assets.xcassets */; };
+		4155481E2B79004B004DB887 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155481D2B79004B004DB887 /* Category.swift */; };
 		41BAFF412B77BDC5009081CA /* LocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BAFF402B77BDC5009081CA /* LocationButton.swift */; };
 		41DC6E222B77DB3D0061D06A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DC6E212B77DB3D0061D06A /* ContentView.swift */; };
 		41FE9FE22B76028C005CAE27 /* ProductsGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FE9FE12B76028C005CAE27 /* ProductsGrid.swift */; };
@@ -22,6 +23,7 @@
 		410545632B5803BB0033915C /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		410545652B5803BD0033915C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		410545682B5803BD0033915C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4155481D2B79004B004DB887 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		41BAFF402B77BDC5009081CA /* LocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationButton.swift; sourceTree = "<group>"; };
 		41DC6E212B77DB3D0061D06A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		41FE9FE12B76028C005CAE27 /* ProductsGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsGrid.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				410545612B5803BB0033915C /* iStoreApp.swift */,
+				4155481D2B79004B004DB887 /* Category.swift */,
 				41BAFF3F2B77BD76009081CA /* Home */,
 				41DC6E212B77DB3D0061D06A /* ContentView.swift */,
 				410545652B5803BD0033915C /* Assets.xcassets */,
@@ -159,6 +162,7 @@
 				410545642B5803BB0033915C /* Home.swift in Sources */,
 				410545622B5803BB0033915C /* iStoreApp.swift in Sources */,
 				41FE9FE22B76028C005CAE27 /* ProductsGrid.swift in Sources */,
+				4155481E2B79004B004DB887 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +293,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iStore/Preview Content\"";
+				DEVELOPMENT_TEAM = RDX6Y8GPTD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -317,6 +322,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iStore/Preview Content\"";
+				DEVELOPMENT_TEAM = RDX6Y8GPTD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
