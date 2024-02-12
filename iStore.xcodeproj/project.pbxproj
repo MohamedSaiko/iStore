@@ -60,7 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				410545612B5803BB0033915C /* iStoreApp.swift */,
-				4155481D2B79004B004DB887 /* Category.swift */,
+				4155481F2B7918E3004DB887 /* Category */,
 				41BAFF3F2B77BD76009081CA /* Home */,
 				41DC6E212B77DB3D0061D06A /* ContentView.swift */,
 				410545652B5803BD0033915C /* Assets.xcassets */,
@@ -75,6 +75,14 @@
 				410545682B5803BD0033915C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4155481F2B7918E3004DB887 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				4155481D2B79004B004DB887 /* Category.swift */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		41BAFF3F2B77BD76009081CA /* Home */ = {
