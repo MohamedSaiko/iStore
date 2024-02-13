@@ -41,11 +41,4 @@ final class HomeViewModel: ObservableObject {
             }
         }
     }
-    
-    func checkForLastCell(with indexPath: IndexPath, completion: () -> Void) {
-        
-        if indexPath.row == products.count - 1, products.count < totalNumberOfPosts {
-            completion()
-        }
-    }
 }
