@@ -12,24 +12,25 @@ struct ContentView: View {
         TabView {
             Home()
                 .tabItem {
-                    Label("",systemImage: "house.fill")
+                    Image(systemName: "house.fill")
                 }
             
             Category()
                 .tabItem {
-                    Label("",systemImage: "tray.fill")
+                    Image(systemName: "tray.fill")
                 }
             
             Text("cart")
                 .tabItem {
-                    Label("",systemImage: "bag.fill")
+                    Image(systemName: "bag.fill")
                 }
             
             Text("account")
                 .tabItem {
-                    Label("",systemImage: "line.3.horizontal")
+                    Image(systemName: "line.3.horizontal")
                 }
         }
+        .accentColor(.pink)
     }
 }
 
