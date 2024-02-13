@@ -9,21 +9,26 @@ import SwiftUI
 
 struct Home: View {
     
+    @StateObject var homeViewModel = HomeViewModel(networkManager: NetworkManager())
+    
     @State private var text = ""
     
     var body: some View {
         NavigationView {
-                VStack() {
-                    LocationButton()
-                    
-                    Spacer()
-                    
-                    ProductsGrid()
-                }
-                .searchable(text: $text)
-                .padding(.horizontal)
-                .navigationTitle("iStore")
+            VStack() {
+                LocationButton()
+                
+                ProductsGrid(products: homeViewModel.products)
             }
+            .searchable(text: $text)
+            .padding(.horizontal)
+            .navigationTitle("iStore")
+        }
+        .task {
+            homeViewModel.getProducts {
+                print(homeViewModel.products)
+            }
+        }
     }
 }
 
