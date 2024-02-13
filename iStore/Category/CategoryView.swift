@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct Category: View {
+struct CategoryView: View {
     
     @StateObject var categoryViewModel = CategoryViewModel(networkManager: NetworkManager())
     
     var body: some View {
         NavigationView {
             ProductsGrid(products: categoryViewModel.products)
-                .navigationTitle("Category")
+                .navigationTitle(category)
                 .navigationBarTitleDisplayMode(.inline)
         }
         .task {
@@ -27,6 +27,6 @@ struct Category: View {
 
 struct Category_Previews: PreviewProvider {
     static var previews: some View {
-        Category()
+        CategoryView()
     }
 }

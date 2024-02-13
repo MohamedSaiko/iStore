@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Home: View {
+struct HomeView: View {
     
     @StateObject var homeViewModel = HomeViewModel(networkManager: NetworkManager())
     
@@ -22,7 +22,8 @@ struct Home: View {
             }
             .searchable(text: $text)
             .padding(.horizontal)
-            .navigationTitle("iStore")
+            .navigationTitle(iStore)
+            .navigationBarTitleDisplayMode(.inline)
         }
         .task {
             homeViewModel.getProducts {
@@ -35,7 +36,7 @@ struct Home: View {
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            Home()
+            HomeView()
         }
     }
 }
