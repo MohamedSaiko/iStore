@@ -1,0 +1,23 @@
+//
+//  User.swift
+//  iStore
+//
+//  Created by Mohamed Sayed on 17.01.24.
+//
+
+import Foundation
+
+struct User: Codable {
+    let id: Int
+    let userName: String
+    let email: String
+    let firstName: String
+    let lastName: String
+    let gender: String
+    let image: String
+    let token: String
+}
+
+enum CodingKeys: String, CodingKey {
+    case userName = "username"
+}

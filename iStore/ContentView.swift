@@ -2,15 +2,35 @@
 //  ContentView.swift
 //  iStore
 //
-//  Created by Mohamed Sayed on 17.01.24.
+//  Created by Mohamed Sayed on 10.02.24.
 //
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        TabView {
+            HomeView()
+                .tabItem {
+                    Image(systemName: "house.fill")
+                }
+            
+            CategoryView()
+                .tabItem {
+                    Image(systemName: "tray.fill")
+                }
+            
+            Text("cart")
+                .tabItem {
+                    Image(systemName: "bag.fill")
+                }
+            
+            Text("account")
+                .tabItem {
+                    Image(systemName: "line.3.horizontal")
+                }
+        }
+        .accentColor(.pink)
     }
 }
 
