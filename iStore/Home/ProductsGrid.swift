@@ -30,7 +30,7 @@ struct ProductsGrid: View {
                                 ProgressView()
                             }
                             .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .shadow(radius: 10)
+                            .shadow(color: .black, radius: 10)
                             .padding()
                             
                             Spacer()
