@@ -17,8 +17,15 @@ struct HomeView: View {
         NavigationView {
             VStack() {
                 LocationButton()
-                
-                ProductsGrid(products: homeViewModel.products)
+                if homeViewModel.isloading {
+                    Spacer()
+                    
+                    ProgressView()
+                    
+                    Spacer()
+                } else {
+                    ProductsGrid(products: homeViewModel.products)
+                }
             }
             .searchable(text: $text)
             .padding(.horizontal)
