@@ -14,23 +14,23 @@ struct ProductDetailsTabView: View {
     var body: some View {
         
         if let product = product {
-//            TabView {
-                //ForEach(product.images, id:\.self) { url in
-            let url = product.images[0]
+            TabView {
+                ForEach(product.images, id:\.self) { url in
                     AsyncImage(url: url) { image in
                         image
                             .resizable()
                             .scaledToFit()
                     } placeholder: {
                         ProgressView()
+                            .tint(.white)
                     }
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .shadow(radius: 10)
                     .padding(5)
-                //}
-//            }
-//            .tabViewStyle(.page)
-//            .indexViewStyle(.page(backgroundDisplayMode: .never))
+                }
+            }
+            .tabViewStyle(.page)
+            .indexViewStyle(.page(backgroundDisplayMode: .never))
         }
     }
 }
