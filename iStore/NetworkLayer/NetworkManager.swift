@@ -17,9 +17,9 @@ enum NetworkError: Error {
 
 struct NetworkManager {
     
-    func loadData(skip: Int,completion: @ escaping (Result<productsData, NetworkError>) -> Void) {
+    func loadData<T: Decodable>(with urlString: String, skip: Int, completion: @ escaping (Result<T, NetworkError>) -> Void) {
         
-        let url = URL(string: allProductsUrl + limit + "\(skip)")
+        let url = URL(string: urlString)
         
         guard let url = url else {
             completion(.failure(.invalidURL))
@@ -39,7 +39,7 @@ struct NetworkManager {
                   }
             
             do {
-                let jsonProducts = try JSONDecoder().decode(productsData.self, from: data)
+                let jsonProducts = try JSONDecoder().decode(T.self, from: data)
                 completion(.success(jsonProducts))
             }
             catch {
