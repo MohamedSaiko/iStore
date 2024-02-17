@@ -15,7 +15,7 @@ struct ContentView: View {
                     Image(systemName: "house.fill")
                 }
             
-            CategoryView()
+            CategoriesView()
                 .tabItem {
                     Image(systemName: "tray.fill")
                 }
