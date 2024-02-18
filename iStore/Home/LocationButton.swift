@@ -34,9 +34,3 @@ struct LocationButton: View {
         .tint(.black)
     }
 }
-
-struct LocationButton_Previews: PreviewProvider {
-    static var previews: some View {
-        LocationButton()
-    }
-}
