@@ -9,11 +9,10 @@ import SwiftUI
 
 struct ProductDetailsTabView: View {
     
-    var product: Product?
+    var product: Product
     
     var body: some View {
         
-        if let product = product {
             TabView {
                 ForEach(product.images, id:\.self) { url in
                     AsyncImage(url: url) { image in
@@ -31,12 +30,5 @@ struct ProductDetailsTabView: View {
             }
             .tabViewStyle(.page)
             .indexViewStyle(.page(backgroundDisplayMode: .never))
-        }
-    }
-}
-
-struct ProductDetailsTabView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductDetailsTabView()
     }
 }
