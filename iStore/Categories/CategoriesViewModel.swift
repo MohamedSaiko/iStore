@@ -14,18 +14,15 @@ final class CategoriesViewModel: ObservableObject {
     @Published var products = [Product]()
     @Published var isloading = true
     
-    private var skip = 0
-    private let totalNumberOfPosts = 150
-    
     init(networkManager: NetworkManager) {
         self.networkManager = networkManager
     }
     
     func getProducts(completion: @escaping () -> Void) {
         
-        let url = allProductsUrl + limit + "\(skip)"
+        let url = allProductsUrl
         
-        networkManager.loadData(with: url, skip: skip) { [weak self] (result: Result<ProductsData,NetworkError>) in
+        networkManager.loadData(with: url) { [weak self] (result: Result<ProductsData,NetworkError>) in
             
             guard let self = self else {
                 return
@@ -37,9 +34,7 @@ final class CategoriesViewModel: ObservableObject {
                     self.products.append(contentsOf: data.products)
                     self.isloading = false
                 }
-                completion()
-                self.skip += 10
-                
+                    
             case .failure(let error):
                 print(NetworkError.unknownError(error))
             }
