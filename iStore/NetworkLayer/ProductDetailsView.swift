@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductDetailsView: View {
     
-    @StateObject var productDetailsViewModel = ProductDetailsViewModel(networkManager: NetworkManager())
+    @StateObject var productDetailsViewModel = ProductDetailsViewModel(networkManager: NetworkManager(), product: Product(id: Int(), title: String(), description: String(), price: Int(), discountPercentage: Double(), rating: Double(), stock: Int(), brand: String(), category: String(), thumbnail: URL(fileURLWithPath: String()), images: [URL]()))
     
     @State private var isFavoriteTapped = false
     var id: Int
@@ -31,7 +31,7 @@ struct ProductDetailsView: View {
                     ScrollView(.vertical, showsIndicators: false) {
                         VStack(alignment: .leading) {
                             HStack(alignment: .center, spacing: 2) {
-                                Text(productDetailsViewModel.getProductBrand())
+                                Text(productDetailsViewModel.product.brand)
                                     .foregroundColor(.black)
                                     .font(.system(.title2, design: .rounded))
                                 
@@ -40,7 +40,7 @@ struct ProductDetailsView: View {
                                 Image(systemName: "star.fill")
                                     .foregroundColor(.pink)
                                 
-                                Text("\(productDetailsViewModel.getProductRating(), specifier: "%.2f")")
+                                Text("\(productDetailsViewModel.product.rating, specifier: "%.2f")")
                                     .foregroundColor(.black)
                                     .font(.system(.title2, design: .rounded))
                             }
@@ -52,7 +52,7 @@ struct ProductDetailsView: View {
                                     .foregroundColor(.gray)
                                     .font(.system(.headline, design: .rounded))
                                 
-                                Text(productDetailsViewModel.getProductDescription())
+                                Text(productDetailsViewModel.product.description)
                                     .foregroundColor(.black)
                                     .font(.system(.headline, design: .rounded))
                             }
@@ -67,7 +67,7 @@ struct ProductDetailsView: View {
                                 
                                 Spacer()
                                 
-                                Text("$\(productDetailsViewModel.getProductPrice())")
+                                Text("$\(productDetailsViewModel.product.price)")
                                     .foregroundColor(.pink)
                                     .font(.system(.title2, design: .rounded))
                             }
@@ -116,15 +116,7 @@ struct ProductDetailsView: View {
             }
         }
         .task {
-            productDetailsViewModel.getProduct(with: id) {
-                print("success")
-            }
+            productDetailsViewModel.getProduct(with: id)
         }
-    }
-}
-
-struct ProductDetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductDetailsView(id: 1)
     }
 }
