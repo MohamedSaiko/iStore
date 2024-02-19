@@ -10,11 +10,12 @@ import Foundation
 // MARK: NavigationBar Titles
 
 let iStore = "iStore"
-let category = "Category"
+let categories = "Categories"
 
 // MARK: Networking Constants
 
 let allProductsUrl = "https://dummyjson.com/products"
+let singleProduct = "https://dummyjson.com/products/"
 let authenticationUrl = "https://dummyjson.com/auth/login"
 let limit = "/?limit=10&skip="
 
