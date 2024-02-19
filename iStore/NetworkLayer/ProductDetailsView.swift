@@ -30,73 +30,27 @@ struct ProductDetailsView: View {
                     
                     ScrollView(.vertical, showsIndicators: false) {
                         VStack(alignment: .leading) {
-                            HStack(alignment: .center, spacing: 2) {
-                                Text(productDetailsViewModel.product.brand)
-                                    .foregroundColor(.black)
-                                    .font(.system(.title2, design: .rounded))
-                                
-                                Spacer()
-                                
-                                Image(systemName: "star.fill")
-                                    .foregroundColor(.pink)
-                                
-                                Text("\(productDetailsViewModel.product.rating, specifier: "%.2f")")
-                                    .foregroundColor(.black)
-                                    .font(.system(.title2, design: .rounded))
-                            }
+                            
+                            BrandView(product: productDetailsViewModel.product)
                             
                             Spacer()
                             
-                            VStack(alignment: .leading, spacing: 10) {
-                                Text("Desription: ")
-                                    .foregroundColor(.gray)
-                                    .font(.system(.headline, design: .rounded))
-                                
-                                Text(productDetailsViewModel.product.description)
-                                    .foregroundColor(.black)
-                                    .font(.system(.headline, design: .rounded))
-                            }
+                            DescriptionView(product: productDetailsViewModel.product)
                             
                             Spacer()
                             Spacer()
                             
-                            HStack() {
-                                Text("Total")
-                                    .foregroundColor(.black)
-                                    .font(.system(.title2, design: .rounded))
-                                
-                                Spacer()
-                                
-                                Text("$\(productDetailsViewModel.product.price)")
-                                    .foregroundColor(.pink)
-                                    .font(.system(.title2, design: .rounded))
-                            }
+                            TotalPriceView(product: productDetailsViewModel.product)
                         }
                         .frame(height: UIScreen.main.bounds.height / 4)
                         .padding()
                         
-                        Button {
-                            print("Image tapped!")
-                        } label: {
-                            
-                            HStack() {
-                                Text("Add To Cart")
-                                    .foregroundColor(.white)
-                                    .font(.system(.title, design: .rounded))
-                                
-                                Spacer()
-                                
-                                Image(systemName: "bag")
-                                    .foregroundColor(.white)
-                                    .font(.system(.title, design: .rounded))
-                            }
-                            .padding(20)
-                        }
-                        .frame(maxWidth: .infinity)
-                        .background(.pink)
-                        .clipShape(RoundedRectangle(cornerRadius: 15))
-                        .padding(.horizontal)
-                        .padding(.bottom)
+                        AddToCardButton()
+                            .frame(maxWidth: .infinity)
+                            .background(.pink)
+                            .clipShape(RoundedRectangle(cornerRadius: 15))
+                            .padding(.horizontal)
+                            .padding(.bottom)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(.white)
