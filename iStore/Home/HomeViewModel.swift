@@ -11,10 +11,8 @@ final class HomeViewModel: ObservableObject {
     
     private let networkManager: NetworkManager
     
-    @Published var products = [product]()
-    
-    private var skip = 0
-    private let totalNumberOfPosts = 150
+    @Published var products = [Product]()
+    @Published var isloading = true
     
     init(networkManager: NetworkManager) {
         self.networkManager = networkManager
@@ -22,7 +20,9 @@ final class HomeViewModel: ObservableObject {
     
     func getProducts(completion: @escaping () -> Void) {
         
-        networkManager.loadData(skip: skip) { [weak self] result in
+        let url = allProductsUrl
+        
+        networkManager.loadData(with: url) { [weak self] (result: Result<ProductsData,NetworkError>) in
             
             guard let self = self else {
                 return
@@ -32,9 +32,8 @@ final class HomeViewModel: ObservableObject {
             case .success(let data):
                 DispatchQueue.main.async {
                     self.products.append(contentsOf: data.products)
+                    self.isloading = false
                 }
-                completion()
-                self.skip += 10
                 
             case .failure(let error):
                 print(NetworkError.unknownError(error))
