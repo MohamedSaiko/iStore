@@ -14,17 +14,12 @@ final class ProductDetailsViewModel: ObservableObject {
     @Published var product: Product
     @Published var isloading = true
     
-    private var skip = 0
-    private let totalNumberOfPosts = 150
-    
-    
     init(networkManager: NetworkManager, product: Product) {
         self.networkManager = networkManager
         self.product = product
     }
     
     func getProduct(with id: Int) {
-        
         let url = singleProduct + "\(id)"
         
         networkManager.loadData(with: url) { [weak self] (result: Result<Product,NetworkError>) in
