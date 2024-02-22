@@ -24,9 +24,7 @@ struct CategoriesView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .task {
-            categoryViewModel.getProducts {
-                print(categoryViewModel.products)
-            }
+            categoryViewModel.getProducts()
         }
     }
 }

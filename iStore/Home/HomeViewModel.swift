@@ -1,13 +1,13 @@
 //
-//  CategoryViewModel.swift
+//  HomeViewModel.swift
 //  iStore
 //
-//  Created by Mohamed Sayed on 12.02.24.
+//  Created by Mohamed Sayed on 17.01.24.
 //
 
 import Foundation
 
-final class CategoriesViewModel: ObservableObject {
+final class HomeViewModel: ObservableObject {
     
     private let networkManager: NetworkManager
     
@@ -34,7 +34,7 @@ final class CategoriesViewModel: ObservableObject {
                     self.products.append(contentsOf: data.products)
                     self.isloading = false
                 }
-                    
+                
             case .failure(let error):
                 print(NetworkError.unknownError(error))
             }
