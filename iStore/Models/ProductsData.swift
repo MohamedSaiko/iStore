@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct productsData: Decodable {
-    let products: [product]
+struct ProductsData: Decodable {
+    let products: [Product]
 }
 
-struct product: Decodable, Identifiable {
+struct Product: Decodable, Identifiable {
     let id: Int
     let title: String
     let description: String

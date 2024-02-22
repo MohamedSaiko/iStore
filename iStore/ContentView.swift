@@ -33,9 +33,3 @@ struct ContentView: View {
         .accentColor(.pink)
     }
 }
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
