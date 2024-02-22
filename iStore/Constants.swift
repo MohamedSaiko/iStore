@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: Colors
+
 // MARK: NavigationBar Titles
 
 let iStore = "iStore"
