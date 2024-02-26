@@ -8,6 +8,11 @@
 import Foundation
 
 struct CartData: Decodable, Identifiable {
+    let id: Int
+    let products: [Cart]
+}
+
+struct Cart: Decodable, Identifiable {
     let id: String
     let title: String
     let price: Int
