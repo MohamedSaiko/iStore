@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct AddToCardButton: View {
+    
+    let action: () -> Void
+    
     var body: some View {
         Button {
-            print("Image tapped!")
+            action()
         } label: {
             
             HStack() {
