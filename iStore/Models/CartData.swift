@@ -7,13 +7,23 @@
 
 import Foundation
 
-struct CartData: Decodable, Identifiable {
-    let id: Int
-    let products: [Cart]
+
+struct Cart: Decodable {
+    let carts: [CartData]
 }
 
-struct Cart: Decodable, Identifiable {
-    let id: String
+struct CartData: Decodable, Identifiable {
+    let id: Int
+    let products: [CartProduct]
+    let total: Int
+    let discountedTotal: Int
+    let userId: Int
+    let totalProducts: Int
+    let totalQuantity: Int
+}
+
+struct CartProduct: Decodable, Identifiable {
+    let id: Int
     let title: String
     let price: Int
     let quantity: Int
@@ -21,4 +31,9 @@ struct Cart: Decodable, Identifiable {
     let discountPercentage: Double
     let discountedPrice: Int
     let thumbnail: String
+}
+
+struct CartRequestBody: Encodable {
+    let userId: Int
+    let products: [[String: Int]]
 }
