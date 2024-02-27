@@ -18,6 +18,10 @@ let categories = "Categories"
 
 let allProductsUrl = "https://dummyjson.com/products"
 let singleProduct = "https://dummyjson.com/products/"
-let authenticationUrl = "https://dummyjson.com/auth/login"
 let limit = "/?limit=10&skip="
+
+let authenticationUrl = "https://dummyjson.com/auth/login"
+
+let addToCartURL = "https://dummyjson.com/carts/add"
+let userCartURL = "https://dummyjson.com/carts/user/"
 
