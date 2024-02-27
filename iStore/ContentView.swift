@@ -20,7 +20,7 @@ struct ContentView: View {
                     Image(systemName: "tray.fill")
                 }
             
-            Text("cart")
+            CartView()
                 .tabItem {
                     Image(systemName: "bag.fill")
                 }

@@ -12,6 +12,7 @@
 		4193243D2B8CCC2F0015C45D /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4193243C2B8CCC2F0015C45D /* CartView.swift */; };
 		419324402B8CDBA30015C45D /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4193243F2B8CDBA30015C45D /* CartManager.swift */; };
 		419324422B8CDBDE0015C45D /* CartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419324412B8CDBDE0015C45D /* CartData.swift */; };
+		419324442B8D1CDF0015C45D /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419324432B8D1CDF0015C45D /* CartViewModel.swift */; };
 		41DC6E222B77DB3D0061D06A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DC6E212B77DB3D0061D06A /* ContentView.swift */; };
 		41F8DC032B871D46000582A1 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F8DBFA2B871D45000582A1 /* AuthenticationManager.swift */; };
 		41F8DC042B871D46000582A1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F8DBFB2B871D45000582A1 /* NetworkManager.swift */; };
@@ -42,6 +43,7 @@
 		4193243C2B8CCC2F0015C45D /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		4193243F2B8CDBA30015C45D /* CartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
 		419324412B8CDBDE0015C45D /* CartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartData.swift; sourceTree = "<group>"; };
+		419324432B8D1CDF0015C45D /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		41DC6E212B77DB3D0061D06A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		41F8DBFA2B871D45000582A1 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticationManager.swift; path = /Users/Ali/Desktop/HackingWithSwift/SaikoProjects/iStore/iStore/NetworkLayer/AuthenticationManager.swift; sourceTree = "<absolute>"; };
 		41F8DBFB2B871D45000582A1 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = /Users/Ali/Desktop/HackingWithSwift/SaikoProjects/iStore/iStore/NetworkLayer/NetworkManager.swift; sourceTree = "<absolute>"; };
@@ -121,6 +123,7 @@
 		4193243E2B8CCC530015C45D /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				419324432B8D1CDF0015C45D /* CartViewModel.swift */,
 				4193243C2B8CCC2F0015C45D /* CartView.swift */,
 			);
 			path = Cart;
@@ -267,6 +270,7 @@
 				410545622B5803BB0033915C /* iStoreApp.swift in Sources */,
 				41F8DC3D2B871EDD000582A1 /* AddToCardButton.swift in Sources */,
 				41F8DC3F2B871EDD000582A1 /* TotalPriceView.swift in Sources */,
+				419324442B8D1CDF0015C45D /* CartViewModel.swift in Sources */,
 				41F8DC3C2B871EDD000582A1 /* DescriptionView.swift in Sources */,
 				41F8DC032B871D46000582A1 /* AuthenticationManager.swift in Sources */,
 				41F8DC3A2B871EDD000582A1 /* BrandView.swift in Sources */,
