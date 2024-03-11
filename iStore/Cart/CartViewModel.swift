@@ -10,11 +10,11 @@ import Foundation
 final class CartViewModel: ObservableObject {
     
     private let networkManager: NetworkManager
-    private let cartManager: CartManager
+    private let cartManager: CartNetworkManager
     
     @Published var carts = [CartData]()
     
-    init(networkManager: NetworkManager, cartManager: CartManager) {
+    init(networkManager: NetworkManager, cartManager: CartNetworkManager) {
         self.networkManager = networkManager
         self.cartManager = cartManager
     }
@@ -29,7 +29,6 @@ final class CartViewModel: ObservableObject {
                     DispatchQueue.main.async {
                         self.carts.removeAll()
                         self.carts.append(contentsOf: data.carts)
-                        print(self.carts)
                     }
                 case .failure(let error):
                     print(NetworkError.unknownError(error))

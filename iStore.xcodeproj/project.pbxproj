@@ -10,7 +10,7 @@
 		410545622B5803BB0033915C /* iStoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410545612B5803BB0033915C /* iStoreApp.swift */; };
 		410545692B5803BD0033915C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 410545682B5803BD0033915C /* Preview Assets.xcassets */; };
 		4193243D2B8CCC2F0015C45D /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4193243C2B8CCC2F0015C45D /* CartView.swift */; };
-		419324402B8CDBA30015C45D /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4193243F2B8CDBA30015C45D /* CartManager.swift */; };
+		419324402B8CDBA30015C45D /* CartNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4193243F2B8CDBA30015C45D /* CartNetworkManager.swift */; };
 		419324422B8CDBDE0015C45D /* CartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419324412B8CDBDE0015C45D /* CartData.swift */; };
 		419324442B8D1CDF0015C45D /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419324432B8D1CDF0015C45D /* CartViewModel.swift */; };
 		41941A952B9F089D00B168A8 /* CartList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41941A942B9F089D00B168A8 /* CartList.swift */; };
@@ -43,7 +43,7 @@
 		410545612B5803BB0033915C /* iStoreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iStoreApp.swift; sourceTree = "<group>"; };
 		410545682B5803BD0033915C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4193243C2B8CCC2F0015C45D /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
-		4193243F2B8CDBA30015C45D /* CartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
+		4193243F2B8CDBA30015C45D /* CartNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartNetworkManager.swift; sourceTree = "<group>"; };
 		419324412B8CDBDE0015C45D /* CartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartData.swift; sourceTree = "<group>"; };
 		419324432B8D1CDF0015C45D /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		41941A942B9F089D00B168A8 /* CartList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartList.swift; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 			children = (
 				41F8DBFA2B871D45000582A1 /* AuthenticationManager.swift */,
 				41F8DBFB2B871D45000582A1 /* NetworkManager.swift */,
-				4193243F2B8CDBA30015C45D /* CartManager.swift */,
+				4193243F2B8CDBA30015C45D /* CartNetworkManager.swift */,
 			);
 			name = NetworkLayer;
 			sourceTree = "<group>";
@@ -272,7 +272,7 @@
 				41F8DC202B871E1F000582A1 /* User.swift in Sources */,
 				41F8DC1A2B871DCF000582A1 /* CategoriesGrid.swift in Sources */,
 				41F8DC1C2B871E09000582A1 /* Constants.swift in Sources */,
-				419324402B8CDBA30015C45D /* CartManager.swift in Sources */,
+				419324402B8CDBA30015C45D /* CartNetworkManager.swift in Sources */,
 				41F8DC112B871D82000582A1 /* ProductsGrid.swift in Sources */,
 				410545622B5803BB0033915C /* iStoreApp.swift in Sources */,
 				41F8DC3D2B871EDD000582A1 /* AddToCardButton.swift in Sources */,

@@ -11,7 +11,7 @@ struct ProductDetailsView: View {
     
     @StateObject var productDetailsViewModel = ProductDetailsViewModel(
         networkManager: NetworkManager(),
-        cartManager: CartManager(),
+        cartManager: CartNetworkManager(),
         product: Product(id: Int(),
                          title: String(),
                          description: String(),

@@ -15,7 +15,7 @@ enum CartRequestError: Error {
     case serverResponseError
 }
 
-struct CartManager {
+struct CartNetworkManager {
     
     func addProduct() {
         let cartProducts = [["id": 1,
@@ -51,11 +51,6 @@ struct CartManager {
                       print (CartRequestError.serverResponseError)
                       return
                   }
-            
-            if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                
-                print ("got data: \(dataString)")
-            }
         }
         task.resume()
     }

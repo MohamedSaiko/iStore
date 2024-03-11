@@ -10,12 +10,12 @@ import Foundation
 final class ProductDetailsViewModel: ObservableObject {
     
     private let networkManager: NetworkManager
-    private let cartManager: CartManager
+    private let cartManager: CartNetworkManager
     
     @Published var product: Product
     @Published var isloading = true
     
-    init(networkManager: NetworkManager, cartManager: CartManager, product: Product) {
+    init(networkManager: NetworkManager, cartManager: CartNetworkManager, product: Product) {
         self.networkManager = networkManager
         self.cartManager = cartManager
         self.product = product
@@ -24,7 +24,7 @@ final class ProductDetailsViewModel: ObservableObject {
     func getProduct(with id: Int) {
         let url = singleProduct + "\(id)"
         
-        networkManager.loadData(withURL: url) { [weak self] (result: Result<Product,NetworkError>) in
+        networkManager.loadData(with: url) { [weak self] (result: Result<Product,NetworkError>) in
             
             guard let self = self else {
                 return

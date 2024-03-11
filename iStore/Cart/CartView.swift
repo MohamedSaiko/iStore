@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CartView: View {
     
-    @StateObject var cartViewModel = CartViewModel(networkManager: NetworkManager(), cartManager: CartManager())
+    @StateObject var cartViewModel = CartViewModel(networkManager: NetworkManager(), cartManager: CartNetworkManager())
     
     var body: some View {
         NavigationView {

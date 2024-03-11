@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CartList: View {
     
-    var carts: [CartData]
+    let carts: [CartData]
     
     var body: some View {
         List(carts) { cart in
