@@ -9,8 +9,13 @@ import SwiftUI
 
 struct CheckOutButton: View {
     
-    let total: Int
-    let action: () -> Void
+    private let total: Int
+    private let action: () -> Void
+    
+    init(total: Int, action: @escaping () -> Void) {
+        self.total = total
+        self.action = action
+    }
     
     var body: some View {
         Button {

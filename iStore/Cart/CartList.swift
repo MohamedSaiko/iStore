@@ -9,7 +9,11 @@ import SwiftUI
 
 struct CartList: View {
     
-    let carts: [CartData]
+    private let carts: [CartData]
+    
+    init(carts: [CartData]) {
+        self.carts = carts
+    }
     
     var body: some View {
         List(carts) { cart in

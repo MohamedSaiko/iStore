@@ -9,7 +9,11 @@ import SwiftUI
 
 struct AddToCardButton: View {
     
-    let action: () -> Void
+    private let action: () -> Void
+    
+    init(action: @escaping () -> Void) {
+        self.action = action
+    }
     
     var body: some View {
         Button {
