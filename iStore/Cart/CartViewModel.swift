@@ -23,10 +23,11 @@ final class CartViewModel: ObservableObject {
         
         let url = userCartURL + "1"
         
-        networkManager.loadData(withURL: url) { (result: Result<Cart,NetworkError>) in
+        networkManager.loadData(with: url) { (result: Result<Cart,NetworkError>) in
             switch result {
                 case .success(let data):
                     DispatchQueue.main.async {
+                        self.carts.removeAll()
                         self.carts.append(contentsOf: data.carts)
                         print(self.carts)
                     }
