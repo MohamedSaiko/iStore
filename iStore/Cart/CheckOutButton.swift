@@ -27,7 +27,7 @@ struct CheckOutButton: View {
                         .foregroundColor(.white)
                         .font(.system(.title, design: .rounded))
                     
-                    Text("Total: \(total)")
+                    Text("Total: $\(total)")
                         .foregroundColor(.white)
                         .font(.system(.headline, design: .rounded))
                 }
