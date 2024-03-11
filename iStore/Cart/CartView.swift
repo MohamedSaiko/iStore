@@ -12,9 +12,29 @@ struct CartView: View {
     @StateObject var cartViewModel = CartViewModel(networkManager: NetworkManager(), cartManager: CartManager())
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .task {
-                cartViewModel.loadUserCarts()
+        NavigationView {
+            VStack() {
+                if cartViewModel.carts.isEmpty {
+                    ProgressView()
+                } else {
+                    CartList(carts: cartViewModel.carts)
+                        .listStyle(.plain)
+                    
+                    CheckOutButton(total: cartViewModel.carts[0].total) {
+                        print("CheckOut Pressed")
+                    }
+                    .frame(maxWidth: .infinity)
+                    .background(.pink)
+                    .clipShape(RoundedRectangle(cornerRadius: 15))
+                    .padding(.horizontal)
+                    .padding(.bottom)
+                }
             }
+            .navigationTitle("Cart")
+            .navigationBarTitleDisplayMode(.inline)
+        }
+        .task {
+            cartViewModel.loadUserCarts()
+        }
     }
 }
