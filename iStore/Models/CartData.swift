@@ -30,7 +30,7 @@ struct CartProduct: Decodable, Identifiable {
     let total: Int
     let discountPercentage: Double
     let discountedPrice: Int
-    let thumbnail: String
+    let thumbnail: URL
 }
 
 struct CartRequestBody: Encodable {
