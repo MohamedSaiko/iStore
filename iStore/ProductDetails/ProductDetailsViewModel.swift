@@ -10,12 +10,14 @@ import Foundation
 final class ProductDetailsViewModel: ObservableObject {
     
     private let networkManager: NetworkManager
+    private let cartManager: CartNetworkManager
     
     @Published var product: Product
     @Published var isloading = true
     
-    init(networkManager: NetworkManager, product: Product) {
+    init(networkManager: NetworkManager, cartManager: CartNetworkManager, product: Product) {
         self.networkManager = networkManager
+        self.cartManager = cartManager
         self.product = product
     }
     
@@ -39,5 +41,9 @@ final class ProductDetailsViewModel: ObservableObject {
                     print(NetworkError.unknownError(error))
             }
         }
+    }
+    
+    func addToCart() {
+        cartManager.addProduct()
     }
 }

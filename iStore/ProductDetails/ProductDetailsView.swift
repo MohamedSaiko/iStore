@@ -9,7 +9,20 @@ import SwiftUI
 
 struct ProductDetailsView: View {
     
-    @StateObject var productDetailsViewModel = ProductDetailsViewModel(networkManager: NetworkManager(), product: Product(id: Int(), title: String(), description: String(), price: Int(), discountPercentage: Double(), rating: Double(), stock: Int(), brand: String(), category: String(), thumbnail: URL(fileURLWithPath: String()), images: [URL]()))
+    @StateObject var productDetailsViewModel = ProductDetailsViewModel(
+        networkManager: NetworkManager(),
+        cartManager: CartNetworkManager(),
+        product: Product(id: Int(),
+                         title: String(),
+                         description: String(),
+                         price: Int(),
+                         discountPercentage: Double(),
+                         rating: Double(),
+                         stock: Int(),
+                         brand: String(),
+                         category: String(),
+                         thumbnail: URL(fileURLWithPath: String()),
+                         images: [URL]()))
     
     @State private var isFavoriteTapped = false
     var id: Int
@@ -45,7 +58,7 @@ struct ProductDetailsView: View {
                         .frame(height: UIScreen.main.bounds.height / 4)
                         .padding()
                         
-                        AddToCardButton()
+                        AddToCardButton(action: productDetailsViewModel.addToCart)
                             .frame(maxWidth: .infinity)
                             .background(.pink)
                             .clipShape(RoundedRectangle(cornerRadius: 15))
