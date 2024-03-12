@@ -24,7 +24,7 @@ final class ProductDetailsViewModel: ObservableObject {
     func getProduct(with id: Int) {
         let url = singleProduct + "\(id)"
         
-        networkManager.loadData(with: url) { [weak self] (result: Result<Product,NetworkError>) in
+        networkManager.loadData(withURL: url) { [weak self] (result: Result<Product,NetworkError>) in
             
             guard let self = self else {
                 return
