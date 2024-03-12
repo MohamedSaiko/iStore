@@ -23,7 +23,7 @@ final class CartViewModel: ObservableObject {
         
         let url = userCartURL + "1"
         
-        networkManager.loadData(with: url) { (result: Result<Cart,NetworkError>) in
+        networkManager.loadData(withURL: url) { (result: Result<Cart,NetworkError>) in
             switch result {
                 case .success(let data):
                     DispatchQueue.main.async {

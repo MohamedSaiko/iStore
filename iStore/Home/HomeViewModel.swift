@@ -22,7 +22,7 @@ final class HomeViewModel: ObservableObject {
         
         let url = allProductsUrl
         
-        networkManager.loadData(with: url) { [weak self] (result: Result<ProductsData,NetworkError>) in
+        networkManager.loadData(withURL: url) { [weak self] (result: Result<ProductsData,NetworkError>) in
             
             guard let self = self else {
                 return
