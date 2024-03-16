@@ -19,9 +19,9 @@ final class CartViewModel: ObservableObject {
         self.cartManager = cartManager
     }
     
-    func loadUserCarts() {
+    func loadUserCarts(withUserId userID: Int) {
         
-        let url = userCartURL + "1"
+        let url = userCartURL + "\(userID)"
         
         networkManager.loadData(withURL: url) { (result: Result<Cart,NetworkError>) in
             switch result {
