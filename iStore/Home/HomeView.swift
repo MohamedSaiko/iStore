@@ -12,6 +12,11 @@ struct HomeView: View {
     @StateObject var homeViewModel = HomeViewModel(networkManager: NetworkManager())
     
     @State private var text = ""
+    private let userID: Int
+    
+    init(userID: Int) {
+        self.userID = userID
+    }
     
     var body: some View {
         NavigationView {
@@ -24,7 +29,7 @@ struct HomeView: View {
                     
                     Spacer()
                 } else {
-                    ProductsGrid(products: homeViewModel.products)
+                    ProductsGrid(products: homeViewModel.products, userID: userID)
                 }
             }
             .searchable(text: $text)
