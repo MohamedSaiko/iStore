@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject var loginViewModel: LoginViewModel
+    
     var body: some View {
         TabView {
-            HomeView()
+            HomeView(userID: loginViewModel.currentUser.id)
                 .tabItem {
                     Image(systemName: "house.fill")
                 }
@@ -20,7 +23,7 @@ struct ContentView: View {
                     Image(systemName: "tray.fill")
                 }
             
-            CartView()
+            CartView(userID: loginViewModel.currentUser.id)
                 .tabItem {
                     Image(systemName: "bag.fill")
                 }
