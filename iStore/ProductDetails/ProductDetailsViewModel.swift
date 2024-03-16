@@ -43,7 +43,7 @@ final class ProductDetailsViewModel: ObservableObject {
         }
     }
     
-    func addToCart(WithUserID userID: Int) {
-        cartManager.addProduct(WithUserID: userID)
+    func addToCart(WithUserID userID: Int, productID: Int) {
+        cartManager.addProduct(WithUserID: userID, productID: productID)
     }
 }

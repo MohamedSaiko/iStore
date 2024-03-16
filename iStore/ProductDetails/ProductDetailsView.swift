@@ -64,7 +64,7 @@ struct ProductDetailsView: View {
                         .frame(height: UIScreen.main.bounds.height / 4)
                         .padding()
                         
-                        AddToCardButton(action: productDetailsViewModel.addToCart, userID: userID)
+                        AddToCardButton(action: productDetailsViewModel.addToCart, userID: userID, productID: productID)
                             .frame(maxWidth: .infinity)
                             .background(.pink)
                             .clipShape(RoundedRectangle(cornerRadius: 15))

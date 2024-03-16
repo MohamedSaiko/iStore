@@ -11,7 +11,7 @@ import SwiftUI
 struct iStoreApp: App {
     var body: some Scene {
         WindowGroup {
-            LoginView(userName: "", password: "")
+            LoginView(userName: "kminchelle", password: "0lelplR")
         }
     }
 }
