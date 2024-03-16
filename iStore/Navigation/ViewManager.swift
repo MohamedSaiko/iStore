@@ -15,7 +15,7 @@ struct ViewManager: View {
     var body: some View {
         switch navigationCoordinator.switchView {
             case .loginView:
-                LoginView(userName: "kminchelle", password: "0lelplR")
+                LoginView(userName: "", password: "")
                     .environmentObject(navigationCoordinator)
                     .environmentObject(loginViewModel)
                 
