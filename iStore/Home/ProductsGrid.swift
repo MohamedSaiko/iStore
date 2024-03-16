@@ -9,15 +9,22 @@ import SwiftUI
 
 struct ProductsGrid: View {
     
-    var products: [Product]
+    private let products: [Product]
     private let adaptiveColumn = [GridItem(.adaptive(minimum: 150, maximum: 180))]
+    
+    private let userID: Int
+    
+    init(products: [Product], userID: Int) {
+        self.products = products
+        self.userID = userID
+    }
     
     var body: some View {
         ScrollView(showsIndicators: false) {
             LazyVGrid(columns: adaptiveColumn) {
                 ForEach(products) { product in
                     NavigationLink {
-                        ProductDetailsView(id: product.id)
+                        ProductDetailsView(productID: product.id, userID: userID)
                     } label: {
                         VStack(alignment: .center) {
                             Spacer()
@@ -52,11 +59,5 @@ struct ProductsGrid: View {
                 }
             }
         }
-    }
-}
-
-struct ProductsGrid_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductsGrid(products: [])
     }
 }
