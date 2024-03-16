@@ -25,10 +25,16 @@ struct ProductDetailsView: View {
                          images: [URL]()))
     
     @State private var isFavoriteTapped = false
-    var id: Int
+    private let productID: Int
+    private let userID: Int
+    
+    init(productID: Int, userID: Int) {
+        self.productID = productID
+        self.userID = userID
+    }
     
     var body: some View {
-        Group {
+        VStack {
             if productDetailsViewModel.isloading {
                 ProgressView()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -58,7 +64,7 @@ struct ProductDetailsView: View {
                         .frame(height: UIScreen.main.bounds.height / 4)
                         .padding()
                         
-                        AddToCardButton(action: productDetailsViewModel.addToCart)
+                        AddToCardButton(action: productDetailsViewModel.addToCart, userID: userID)
                             .frame(maxWidth: .infinity)
                             .background(.pink)
                             .clipShape(RoundedRectangle(cornerRadius: 15))
@@ -83,7 +89,7 @@ struct ProductDetailsView: View {
             }
         }
         .task {
-            productDetailsViewModel.getProduct(with: id)
+            productDetailsViewModel.getProduct(with: productID)
         }
     }
 }
