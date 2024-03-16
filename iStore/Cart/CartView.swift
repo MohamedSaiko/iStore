@@ -11,6 +11,12 @@ struct CartView: View {
     
     @StateObject var cartViewModel = CartViewModel(networkManager: NetworkManager(), cartManager: CartNetworkManager())
     
+    private let userID: Int
+    
+    init(userID: Int) {
+        self.userID = userID
+    }
+    
     var body: some View {
         NavigationView {
             VStack() {
@@ -34,7 +40,7 @@ struct CartView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .task {
-            cartViewModel.loadUserCarts()
+            cartViewModel.loadUserCarts(withUserId: userID)
         }
     }
 }
