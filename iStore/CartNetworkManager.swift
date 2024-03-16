@@ -17,11 +17,11 @@ enum CartRequestError: Error {
 
 struct CartNetworkManager {
     
-    func addProduct() {
+    func addProduct(WithUserID userID: Int) {
         let cartProducts = [["id": 1,
                              "quantity": 1]]
         
-        let cart = CartRequestBody(userId: 1, products: cartProducts)
+        let cart = CartRequestBody(userId: userID, products: cartProducts)
         
         guard let uploadData = try? JSONEncoder().encode(cart) else {
             print(CartRequestError.encodingError)
