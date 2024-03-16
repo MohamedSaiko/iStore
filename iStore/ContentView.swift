@@ -8,22 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @ObservedObject var loginViewModel: LoginViewModel
-    
     var body: some View {
         TabView {
-            HomeView(userID: loginViewModel.currentUser.id)
+            HomeView()
                 .tabItem {
                     Image(systemName: "house.fill")
                 }
             
-            CategoriesView(userID: loginViewModel.currentUser.id)
+            CategoriesView()
                 .tabItem {
                     Image(systemName: "tray.fill")
                 }
             
-            CartView(userID: loginViewModel.currentUser.id)
+            CartView()
                 .tabItem {
                     Image(systemName: "bag.fill")
                 }
