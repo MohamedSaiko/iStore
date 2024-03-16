@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct RegisterButton: View {
+    
+    @EnvironmentObject var navigationCoordinator: NavigationCoordinator
+    
     var body: some View {
-        NavigationLink("Register") {
-            Text("Register")
+        Button("Register") {
+            navigationCoordinator.switchView = .registerView
         }
     }
 }
