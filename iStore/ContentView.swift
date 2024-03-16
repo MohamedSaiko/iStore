@@ -18,7 +18,7 @@ struct ContentView: View {
                     Image(systemName: "house.fill")
                 }
             
-            CategoriesView()
+            CategoriesView(userID: loginViewModel.currentUser.id)
                 .tabItem {
                     Image(systemName: "tray.fill")
                 }
