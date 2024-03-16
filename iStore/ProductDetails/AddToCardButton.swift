@@ -9,17 +9,18 @@ import SwiftUI
 
 struct AddToCardButton: View {
     
-    private let action: () -> Void
+    private let action: (Int) -> Void
+    private let userID: Int
     
-    init(action: @escaping () -> Void) {
+    init(action: @escaping (Int) -> Void, userID: Int) {
         self.action = action
+        self.userID = userID
     }
     
     var body: some View {
         Button {
-            action()
+            action(userID)
         } label: {
-            
             HStack() {
                 Text("Add To Cart")
                     .foregroundColor(.white)
