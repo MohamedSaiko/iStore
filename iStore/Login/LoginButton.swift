@@ -9,7 +9,8 @@ import SwiftUI
 
 struct LoginButton: View {
     
-    @StateObject var loginViewModel = LoginViewModel(authenticationManager: AuthenticationManager(), currentUser: CurrentAuthenticatedUser(id: Int()))
+    @EnvironmentObject var loginViewModel: LoginViewModel
+    @EnvironmentObject var navigationCoordinator: NavigationCoordinator
     
     private let userName: String
     private let password: String
@@ -22,17 +23,14 @@ struct LoginButton: View {
     }
     
     var body: some View {
-        NavigationLink(destination: ContentView(loginViewModel: loginViewModel), isActive: $shouldNavigate) {
-            Text("Login")
-                .frame(maxWidth: .infinity, minHeight: 40)
-                .background(.pink)
-                .foregroundColor(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-                .onTapGesture {
-                    loginViewModel.authenticateUser(userName: userName, password: password) {
-                        shouldNavigate = true
-                    }
-                }
+        Button("Login") {
+            loginViewModel.authenticateUser(userName: userName, password: password) {
+                navigationCoordinator.switchView = .contentView
+            }
         }
+        .frame(maxWidth: .infinity, minHeight: 40)
+        .background(.pink)
+        .foregroundColor(.white)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }
