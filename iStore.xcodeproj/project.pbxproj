@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		410545622B5803BB0033915C /* iStoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410545612B5803BB0033915C /* iStoreApp.swift */; };
 		410545692B5803BD0033915C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 410545682B5803BD0033915C /* Preview Assets.xcassets */; };
+		410BCA4D2BA5B1CB0013F568 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410BCA4C2BA5B1CB0013F568 /* NavigationCoordinator.swift */; };
+		410BCA502BA5B38A0013F568 /* ViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410BCA4F2BA5B38A0013F568 /* ViewManager.swift */; };
 		415A0D592BA17E6600ECC38A /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A0D582BA17E6600ECC38A /* LoginButton.swift */; };
 		415A0D5B2BA17EC800ECC38A /* UserNameStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A0D5A2BA17EC800ECC38A /* UserNameStack.swift */; };
 		415A0D5D2BA17F1A00ECC38A /* PasswordStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A0D5C2BA17F1A00ECC38A /* PasswordStack.swift */; };
@@ -48,6 +50,8 @@
 		4105455E2B5803BB0033915C /* iStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		410545612B5803BB0033915C /* iStoreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iStoreApp.swift; sourceTree = "<group>"; };
 		410545682B5803BD0033915C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		410BCA4C2BA5B1CB0013F568 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
+		410BCA4F2BA5B38A0013F568 /* ViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewManager.swift; sourceTree = "<group>"; };
 		415A0D582BA17E6600ECC38A /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		415A0D5A2BA17EC800ECC38A /* UserNameStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameStack.swift; sourceTree = "<group>"; };
 		415A0D5C2BA17F1A00ECC38A /* PasswordStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordStack.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 			children = (
 				410545612B5803BB0033915C /* iStoreApp.swift */,
 				41F8DC1B2B871E09000582A1 /* Constants.swift */,
+				410BCA4E2BA5B1D40013F568 /* Navigation */,
 				41F8DC1D2B871E1F000582A1 /* Models */,
 				4193243E2B8CCC530015C45D /* Cart */,
 				41F8DBF62B871D45000582A1 /* NetworkLayer */,
@@ -135,6 +140,15 @@
 				410545682B5803BD0033915C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		410BCA4E2BA5B1D40013F568 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				410BCA4C2BA5B1CB0013F568 /* NavigationCoordinator.swift */,
+				410BCA4F2BA5B38A0013F568 /* ViewManager.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		4161881E2BA1682700A96EB6 /* Login */ = {
@@ -298,6 +312,8 @@
 				41C96C3E2B9C795C004511E8 /* CheckOutButton.swift in Sources */,
 				415A0D5D2BA17F1A00ECC38A /* PasswordStack.swift in Sources */,
 				4193243D2B8CCC2F0015C45D /* CartView.swift in Sources */,
+				410BCA502BA5B38A0013F568 /* ViewManager.swift in Sources */,
+				410BCA4D2BA5B1CB0013F568 /* NavigationCoordinator.swift in Sources */,
 				41F8DC202B871E1F000582A1 /* User.swift in Sources */,
 				41F8DC1A2B871DCF000582A1 /* CategoriesGrid.swift in Sources */,
 				41F8DC1C2B871E09000582A1 /* Constants.swift in Sources */,
