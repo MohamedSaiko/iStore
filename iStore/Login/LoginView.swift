@@ -18,38 +18,35 @@ struct LoginView: View {
     }
     
     var body: some View {
-        NavigationView {
-            VStack(alignment: .leading, spacing: 24) {
-                Text("iStore")
-                    .font(.system(.largeTitle, design: .rounded))
-                    .fontWeight(.bold)
-                    .foregroundColor(.black)
-                    .padding(.top, 25)
-                    .padding(.horizontal)
-                
-                Text("Get Everything at Your Doorstep")
-                    .font(.system(.largeTitle, design: .rounded))
-                    .fontWeight(.bold)
-                    .foregroundColor(.pink)
-                    .padding()
-                
-                Spacer()
-                
-                VStack(spacing: 24) {
-                    UserNameStack(userName: $userName)
-                    
-                    PasswordStack(password: $password)
-                }
+        VStack(alignment: .leading, spacing: 24) {
+            Text("iStore")
+                .font(.system(.largeTitle, design: .rounded))
+                .fontWeight(.bold)
+                .foregroundColor(.black)
+                .padding(.top, 25)
+                .padding(.horizontal)
+            
+            Text("Get Everything at Your Doorstep")
+                .font(.system(.largeTitle, design: .rounded))
+                .fontWeight(.bold)
+                .foregroundColor(.pink)
                 .padding()
+            
+            Spacer()
+            
+            VStack(spacing: 24) {
+                UserNameStack(userName: $userName)
                 
-                VStack(alignment: .center, spacing: 15) {
-                    LoginButton(userName: userName, password: password)
-                    
-                    RegisterButton()
-                }
-                .padding()
+                PasswordStack(password: $password)
             }
-            .navigationBarHidden(true)
+            .padding()
+            
+            VStack(alignment: .center, spacing: 15) {
+                LoginButton(userName: userName, password: password)
+                
+                RegisterButton()
+            }
+            .padding()
         }
     }
 }
