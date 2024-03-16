@@ -21,6 +21,7 @@ let singleProduct = "https://dummyjson.com/products/"
 let limit = "/?limit=10&skip="
 
 let authenticationUrl = "https://dummyjson.com/auth/login"
+let currentUserURL = "https://dummyjson.com/auth/me"
 
 let addToCartURL = "https://dummyjson.com/carts/add"
 let userCartURL = "https://dummyjson.com/carts/user/"
