@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @StateObject var homeViewModel = HomeViewModel(networkManager: NetworkManager())
-    @EnvironmentObject var loginViewModel: LoginViewModel
+    @EnvironmentObject var loginViewModel: AuthenticationViewModel
     
     @State private var text = ""
     

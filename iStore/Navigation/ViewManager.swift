@@ -10,7 +10,7 @@ import SwiftUI
 struct ViewManager: View {
     
     @StateObject var navigationCoordinator: NavigationCoordinator
-    @StateObject var loginViewModel: LoginViewModel
+    @StateObject var loginViewModel: AuthenticationViewModel
     
     var body: some View {
         switch navigationCoordinator.switchView {

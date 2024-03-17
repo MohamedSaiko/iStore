@@ -11,7 +11,7 @@ struct CategoriesView: View {
     
     @StateObject var categoryViewModel = CategoriesViewModel(networkManager: NetworkManager())
     
-    @EnvironmentObject var loginViewModel: LoginViewModel
+    @EnvironmentObject var loginViewModel: AuthenticationViewModel
     
     var body: some View {
         NavigationView {

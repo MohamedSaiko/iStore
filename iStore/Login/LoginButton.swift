@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginButton: View {
     
-    @EnvironmentObject var loginViewModel: LoginViewModel
+    @EnvironmentObject var loginViewModel: AuthenticationViewModel
     @EnvironmentObject var navigationCoordinator: NavigationCoordinator
     
     private let userName: String

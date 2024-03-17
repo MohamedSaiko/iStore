@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class LoginViewModel: ObservableObject {
+final class AuthenticationViewModel: ObservableObject {
     
     private let authenticationManager: AuthenticationManager
     @Published var currentUser: CurrentAuthenticatedUser

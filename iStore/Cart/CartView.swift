@@ -11,7 +11,7 @@ struct CartView: View {
     
     @StateObject var cartViewModel = CartViewModel(networkManager: NetworkManager(), cartManager: CartNetworkManager())
     
-    @EnvironmentObject var loginViewModel: LoginViewModel
+    @EnvironmentObject var loginViewModel: AuthenticationViewModel
     
     var body: some View {
         NavigationView {
