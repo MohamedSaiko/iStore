@@ -10,19 +10,19 @@ import SwiftUI
 struct ViewManager: View {
     
     @StateObject var navigationCoordinator: NavigationCoordinator
-    @StateObject var loginViewModel: AuthenticationViewModel
+    @StateObject var authenticationViewModel: AuthenticationViewModel
     
     var body: some View {
         switch navigationCoordinator.switchView {
             case .loginView:
                 LoginView(userName: "", password: "")
                     .environmentObject(navigationCoordinator)
-                    .environmentObject(loginViewModel)
+                    .environmentObject(authenticationViewModel)
                 
             case .contentView:
                 ContentView()
                     .environmentObject(navigationCoordinator)
-                    .environmentObject(loginViewModel)
+                    .environmentObject(authenticationViewModel)
                 
             case .registerView:
                 Text("Register")

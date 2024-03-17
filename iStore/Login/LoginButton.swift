@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginButton: View {
     
-    @EnvironmentObject var loginViewModel: AuthenticationViewModel
+    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
     @EnvironmentObject var navigationCoordinator: NavigationCoordinator
     
     private let userName: String
@@ -24,12 +24,12 @@ struct LoginButton: View {
     
     var body: some View {
         Button("Login") {
-            loginViewModel.showProgress = true
-            loginViewModel.showError = false
+            authenticationViewModel.showProgress = true
+            authenticationViewModel.showError = false
             
-            loginViewModel.authenticateUser(userName: userName, password: password) {
+            authenticationViewModel.authenticateUser(userName: userName, password: password) {
                 navigationCoordinator.switchView = .contentView
-                loginViewModel.showProgress = false
+                authenticationViewModel.showProgress = false
             }
         }
         .frame(maxWidth: .infinity, minHeight: 40)

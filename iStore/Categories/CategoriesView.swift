@@ -11,7 +11,7 @@ struct CategoriesView: View {
     
     @StateObject var categoryViewModel = CategoriesViewModel(networkManager: NetworkManager())
     
-    @EnvironmentObject var loginViewModel: AuthenticationViewModel
+    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
     
     var body: some View {
         NavigationView {
@@ -19,7 +19,7 @@ struct CategoriesView: View {
                 if categoryViewModel.isloading {
                     ProgressView()
                 } else {
-                    ProductsGrid(products: categoryViewModel.products, userID: loginViewModel.currentUser.id)
+                    ProductsGrid(products: categoryViewModel.products, userID: authenticationViewModel.currentUser.id)
                 }
             }
             .navigationTitle(categories)

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @EnvironmentObject var loginViewModel: AuthenticationViewModel
+    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
     
     @State private var userName: String
     @State private var password: String
@@ -41,12 +41,12 @@ struct LoginView: View {
                 
                 PasswordStack(password: $password)
                 
-                if loginViewModel.showError {
+                if authenticationViewModel.showError {
                     Text("Please, Enter a valid UserName and Password!")
                         .foregroundColor(.red)
                 }
                 
-                if loginViewModel.showProgress {
+                if authenticationViewModel.showProgress {
                     ProgressView()
                 }
             }

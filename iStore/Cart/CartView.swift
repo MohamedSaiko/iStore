@@ -11,7 +11,7 @@ struct CartView: View {
     
     @StateObject var cartViewModel = CartViewModel(networkManager: NetworkManager(), cartManager: CartNetworkManager())
     
-    @EnvironmentObject var loginViewModel: AuthenticationViewModel
+    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
     
     var body: some View {
         NavigationView {
@@ -36,7 +36,7 @@ struct CartView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .task {
-            cartViewModel.loadUserCarts(withUserId: loginViewModel.currentUser.id)
+            cartViewModel.loadUserCarts(withUserId: authenticationViewModel.currentUser.id)
         }
     }
 }
