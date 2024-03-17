@@ -12,6 +12,9 @@ final class LoginViewModel: ObservableObject {
     private let authenticationManager: AuthenticationManager
     @Published var currentUser: CurrentAuthenticatedUser
     
+    @Published var showError = false
+    @Published var showProgress = false
+    
     init(authenticationManager: AuthenticationManager, currentUser: CurrentAuthenticatedUser) {
         self.authenticationManager = authenticationManager
         self.currentUser = currentUser
@@ -33,8 +36,11 @@ final class LoginViewModel: ObservableObject {
                         }
                     }
                     
-                case .failure(let authenticationError):
-                    print(authenticationError)
+                case .failure(_):
+                    DispatchQueue.main.async {
+                        self.showError = true
+                        self.showProgress = false
+                    }
             }
         }
     }

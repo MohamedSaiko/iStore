@@ -28,14 +28,14 @@ struct AuthenticationManager {
         ]
         
         guard let uploadData = try? JSONEncoder().encode(user) else {
-            print(AuthenticationError.encodingError)
+            completion(.failure(AuthenticationError.encodingError))
             return
         }
         
         let url = URL(string: authenticationUrl)
         
         guard let url = url else {
-            print(AuthenticationError.invalidAuthenticationURL)
+            completion(.failure(AuthenticationError.invalidAuthenticationURL))
             return
         }
         
@@ -45,13 +45,13 @@ struct AuthenticationManager {
         
         let task = URLSession.shared.uploadTask(with: request, from: uploadData) { data, response , error in
             if error != nil {
-                print (AuthenticationError.invalidcrdentials)
+                completion(.failure(AuthenticationError.invalidcrdentials))
                 return
             }
             
             guard let response = response as? HTTPURLResponse,
                   (200...299).contains(response.statusCode) else {
-                      print (AuthenticationError.serverResponseError)
+                      completion(.failure(AuthenticationError.serverResponseError))
                       return
                   }
             

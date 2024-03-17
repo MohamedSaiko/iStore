@@ -24,8 +24,12 @@ struct LoginButton: View {
     
     var body: some View {
         Button("Login") {
+            loginViewModel.showProgress = true
+            loginViewModel.showError = false
+            
             loginViewModel.authenticateUser(userName: userName, password: password) {
                 navigationCoordinator.switchView = .contentView
+                loginViewModel.showProgress = false
             }
         }
         .frame(maxWidth: .infinity, minHeight: 40)
