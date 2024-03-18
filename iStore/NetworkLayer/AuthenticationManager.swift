@@ -67,7 +67,7 @@ struct AuthenticationManager {
     }
     
     func getCurrentUser(withToken token: String, completion: @escaping (CurrentAuthenticatedUser) -> Void) {
-        let url = URL(string: currentUserURL)
+        let url = URL(string: userURL)
         
         guard let url = url else {
             print(AuthenticationError.invalidCurrentUserURL)

@@ -10,13 +10,13 @@ import Foundation
 final class AuthenticationViewModel: ObservableObject {
     private let authenticationManager: AuthenticationManager
     
-    @Published var currentUser: CurrentAuthenticatedUser
+    @Published var user: CurrentAuthenticatedUser
     @Published var showError = false
     @Published var showProgress = false
     
     init(authenticationManager: AuthenticationManager, currentUser: CurrentAuthenticatedUser) {
         self.authenticationManager = authenticationManager
-        self.currentUser = currentUser
+        self.user = currentUser
     }
     
     func authenticateUser(userName: String, password: String, completion: @escaping () -> Void) {
@@ -30,7 +30,7 @@ final class AuthenticationViewModel: ObservableObject {
                 case .success(let token):
                     self.authenticationManager.getCurrentUser(withToken: token) { currentUser in
                         DispatchQueue.main.async {
-                            self.currentUser = currentUser
+                            self.user = currentUser
                             completion()
                         }
                     }

@@ -19,7 +19,7 @@ struct CategoriesView: View {
                 if categoryViewModel.isloading {
                     ProgressView()
                 } else {
-                    ProductsGrid(products: categoryViewModel.products, userID: authenticationViewModel.currentUser.id)
+                    ProductsGrid(products: categoryViewModel.products, userID: authenticationViewModel.user.id)
                 }
             }
             .navigationTitle(categories)

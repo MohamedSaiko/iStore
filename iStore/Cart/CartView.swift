@@ -36,7 +36,7 @@ struct CartView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .task {
-            cartViewModel.loadUserCarts(withUserId: authenticationViewModel.currentUser.id)
+            cartViewModel.loadUserCarts(withUserId: authenticationViewModel.user.id)
         }
     }
 }

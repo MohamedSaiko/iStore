@@ -25,7 +25,7 @@ struct HomeView: View {
                     
                     Spacer()
                 } else {
-                    ProductsGrid(products: homeViewModel.products, userID: authenticationViewModel.currentUser.id)
+                    ProductsGrid(products: homeViewModel.products, userID: authenticationViewModel.user.id)
                 }
             }
             .searchable(text: $text)
