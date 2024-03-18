@@ -16,7 +16,6 @@ enum CartRequestError: Error {
 }
 
 struct CartNetworkManager {
-    
     func addProduct(WithUserID userID: Int, productID: Int) {
         let cartProducts = [["id": productID,
                              "quantity": 1]]

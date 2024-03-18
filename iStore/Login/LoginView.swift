@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct LoginView: View {
-    
     @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
+    @EnvironmentObject var navigationCoordinator: NavigationCoordinator
     
     @State private var userName: String
     @State private var password: String
@@ -37,25 +37,33 @@ struct LoginView: View {
             Spacer()
             
             VStack(spacing: 24) {
-                UserNameStack(userName: $userName)
+                UserNameView(userName: $userName)
                 
-                PasswordStack(password: $password)
+                PasswordView(password: $password)
                 
                 if authenticationViewModel.showError {
                     Text("Please, Enter a valid UserName and Password!")
                         .foregroundColor(.red)
-                }
-                
-                if authenticationViewModel.showProgress {
+                } else if authenticationViewModel.showProgress {
                     ProgressView()
                 }
             }
             .padding()
             
             VStack(alignment: .center, spacing: 15) {
-                LoginButton(userName: userName, password: password)
+                LoginButton {
+                    authenticationViewModel.showProgress = true
+                    authenticationViewModel.showError = false
+                    
+                    authenticationViewModel.authenticateUser(userName: userName, password: password) {
+                        navigationCoordinator.switchView = .contentView
+                        authenticationViewModel.showProgress = false
+                    }
+                }
                 
-                RegisterButton()
+                Button("Continue as a Guest") {
+                    navigationCoordinator.switchView = .contentView
+                }
             }
             .padding()
         }

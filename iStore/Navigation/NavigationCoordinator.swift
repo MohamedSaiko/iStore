@@ -9,7 +9,6 @@ import Foundation
 
 enum CurrentView {
     case loginView
-    case registerView
     case contentView
 }
 

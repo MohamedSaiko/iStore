@@ -8,10 +8,9 @@
 import Foundation
 
 final class AuthenticationViewModel: ObservableObject {
-    
     private let authenticationManager: AuthenticationManager
-    @Published var currentUser: CurrentAuthenticatedUser
     
+    @Published var currentUser: CurrentAuthenticatedUser
     @Published var showError = false
     @Published var showProgress = false
     
@@ -39,7 +38,6 @@ final class AuthenticationViewModel: ObservableObject {
                 case .failure(_):
                     DispatchQueue.main.async {
                         self.showError = true
-                        self.showProgress = false
                     }
             }
         }

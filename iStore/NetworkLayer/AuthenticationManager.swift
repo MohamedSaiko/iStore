@@ -19,9 +19,7 @@ enum AuthenticationError: Error {
 }
 
 struct AuthenticationManager {
-    
     func authenticate(userName: String, password: String, completion: @escaping (Result<String, AuthenticationError>) -> Void) {
-        
         let user: [String : String] = [
             "username": userName,
             "password": password
@@ -69,7 +67,6 @@ struct AuthenticationManager {
     }
     
     func getCurrentUser(withToken token: String, completion: @escaping (CurrentAuthenticatedUser) -> Void) {
-        
         let url = URL(string: currentUserURL)
         
         guard let url = url else {
@@ -82,7 +79,6 @@ struct AuthenticationManager {
         request.setValue(token, forHTTPHeaderField: "Authorization")
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            
             guard let data = data else {
                 print(AuthenticationError.networkError)
                 return

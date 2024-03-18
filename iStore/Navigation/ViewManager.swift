@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ViewManager: View {
-    
     @StateObject var navigationCoordinator: NavigationCoordinator
     @StateObject var authenticationViewModel: AuthenticationViewModel
     
@@ -23,10 +22,6 @@ struct ViewManager: View {
                 ContentView()
                     .environmentObject(navigationCoordinator)
                     .environmentObject(authenticationViewModel)
-                
-            case .registerView:
-                Text("Register")
-                    .environmentObject(navigationCoordinator)
         }
     }
 }

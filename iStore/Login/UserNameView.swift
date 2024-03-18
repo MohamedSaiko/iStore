@@ -1,5 +1,5 @@
 //
-//  PasswordStack.swift
+//  UserNameStack.swift
 //  iStore
 //
 //  Created by Mohamed Sayed on 13.03.24.
@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct PasswordStack: View {
-    
-    @Binding var password: String
+struct UserNameView: View {
+    @Binding var userName: String
     
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text("Password")
+            Text("User Name")
                 .font(.subheadline)
                 .fontWeight(.bold)
             
-            SecureField("Enter your Password", text: $password)
+            TextField("Enter your User Name", text: $userName)
                 .textFieldStyle(.roundedBorder)
+                .foregroundColor(.pink)
         }
     }
 }
