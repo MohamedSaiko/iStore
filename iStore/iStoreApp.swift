@@ -11,7 +11,7 @@ import SwiftUI
 struct iStoreApp: App {
     var body: some Scene {
         WindowGroup {
-            ViewManager(navigationCoordinator: NavigationCoordinator(), authenticationViewModel: AuthenticationViewModel(authenticationManager: AuthenticationManager(), currentUser: CurrentAuthenticatedUser(id: Int())))
+            ViewManager(navigationCoordinator: NavigationCoordinator(), authenticationViewModel: AuthenticationViewModel(authenticationManager: AuthenticationManager(), user: AuthenticatedUser(id: Int())))
         }
     }
 }

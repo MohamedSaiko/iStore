@@ -66,7 +66,7 @@ struct AuthenticationManager {
         task.resume()
     }
     
-    func getCurrentUser(withToken token: String, completion: @escaping (CurrentAuthenticatedUser) -> Void) {
+    func getCurrentUser(withToken token: String, completion: @escaping (AuthenticatedUser) -> Void) {
         let url = URL(string: userURL)
         
         guard let url = url else {
@@ -91,7 +91,7 @@ struct AuthenticationManager {
                   }
             
             do {
-                let currentAuthenticatedUser = try JSONDecoder().decode(CurrentAuthenticatedUser.self, from: data)
+                let currentAuthenticatedUser = try JSONDecoder().decode(AuthenticatedUser.self, from: data)
                 completion(currentAuthenticatedUser)
             }
             catch {

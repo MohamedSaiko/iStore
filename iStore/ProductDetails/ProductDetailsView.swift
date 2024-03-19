@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ProductDetailsView: View {
-    
     @StateObject var productDetailsViewModel = ProductDetailsViewModel(
         networkManager: NetworkManager(),
         cartManager: CartNetworkManager(),
@@ -24,9 +23,10 @@ struct ProductDetailsView: View {
                          thumbnail: URL(fileURLWithPath: String()),
                          images: [URL]()))
     
-    @State private var isFavoriteTapped = false
     private let productID: Int
     private let userID: Int
+    
+    @State private var isFavoriteTapped = false
     
     init(productID: Int, userID: Int) {
         self.productID = productID
@@ -64,12 +64,14 @@ struct ProductDetailsView: View {
                         .frame(height: UIScreen.main.bounds.height / 4)
                         .padding()
                         
-                        AddToCardButton(action: productDetailsViewModel.addToCart, userID: userID, productID: productID)
-                            .frame(maxWidth: .infinity)
-                            .background(.pink)
-                            .clipShape(RoundedRectangle(cornerRadius: 15))
-                            .padding(.horizontal)
-                            .padding(.bottom)
+                        AddToCardButton() {
+                            productDetailsViewModel.addToCart(WithUserID: userID, productID: productID)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .background(.pink)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                        .padding(.horizontal)
+                        .padding(.bottom)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(.white)

@@ -10,13 +10,13 @@ import Foundation
 final class AuthenticationViewModel: ObservableObject {
     private let authenticationManager: AuthenticationManager
     
-    @Published var user: CurrentAuthenticatedUser
+    @Published var user: AuthenticatedUser
     @Published var showError = false
     @Published var showProgress = false
     
-    init(authenticationManager: AuthenticationManager, currentUser: CurrentAuthenticatedUser) {
+    init(authenticationManager: AuthenticationManager, user: AuthenticatedUser) {
         self.authenticationManager = authenticationManager
-        self.user = currentUser
+        self.user = user
     }
     
     func authenticateUser(userName: String, password: String, completion: @escaping () -> Void) {

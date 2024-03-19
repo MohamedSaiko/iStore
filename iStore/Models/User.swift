@@ -18,7 +18,7 @@ struct User: Codable {
     let token: String
 }
 
-struct CurrentAuthenticatedUser: Codable {
+struct AuthenticatedUser: Codable {
     let id: Int
 }
 

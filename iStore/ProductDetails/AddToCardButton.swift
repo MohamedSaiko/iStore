@@ -8,20 +8,15 @@
 import SwiftUI
 
 struct AddToCardButton: View {
-    
-    private let action: (Int, Int) -> Void
-    private let userID: Int
-    private let productID: Int
-    
-    init(action: @escaping (Int, Int) -> Void, userID: Int, productID: Int) {
+    private let action: () -> Void
+
+    init(action: @escaping () -> Void) {
         self.action = action
-        self.userID = userID
-        self.productID = productID
     }
     
     var body: some View {
         Button {
-            action(userID, productID)
+            action()
         } label: {
             HStack() {
                 Text("Add To Cart")
