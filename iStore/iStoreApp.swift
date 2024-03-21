@@ -11,7 +11,7 @@ import SwiftUI
 struct iStoreApp: App {
     var body: some Scene {
         WindowGroup {
-            ViewManager(navigationCoordinator: NavigationCoordinator(), authenticationViewModel: AuthenticationViewModel(authenticationManager: AuthenticationManager(), user: AuthenticatedUser(id: Int())))
+            ViewManager(navigationCoordinator: NavigationCoordinator(), authenticationViewModel: AuthenticationViewModel(authenticationManager: AuthenticationManager(), user: AuthenticatedUser(id: Int(), username: String(),firstName: String(), lastName: String(), maidenName: String(), email: String(), phone: String(), image: URL(fileURLWithPath: String()), address: HomeAddress(address: String(), city: String(), postalCode: String(), coordinates: Coordinates(lat: Double(), lng: Double()), state: String()))))
         }
     }
 }
