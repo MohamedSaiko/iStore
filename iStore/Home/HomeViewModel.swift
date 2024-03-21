@@ -8,7 +8,6 @@
 import Foundation
 
 final class HomeViewModel: ObservableObject {
-    
     private let networkManager: NetworkManager
     
     @Published var products = [Product]()
@@ -19,24 +18,22 @@ final class HomeViewModel: ObservableObject {
     }
     
     func getProducts() {
-        
         let url = allProductsUrl
         
         networkManager.loadData(withURL: url) { [weak self] (result: Result<ProductsData,NetworkError>) in
-            
             guard let self = self else {
                 return
             }
             
             switch result {
-            case .success(let data):
-                DispatchQueue.main.async {
-                    self.products.append(contentsOf: data.products)
-                    self.isloading = false
-                }
-                
-            case .failure(let error):
-                print(NetworkError.unknownError(error))
+                case .success(let data):
+                    DispatchQueue.main.async {
+                        self.products.append(contentsOf: data.products)
+                        self.isloading = false
+                    }
+                    
+                case .failure(let error):
+                    print(NetworkError.unknownError(error))
             }
         }
     }

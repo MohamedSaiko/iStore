@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct HomeView: View {
-    
     @StateObject var homeViewModel = HomeViewModel(networkManager: NetworkManager())
     @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
     

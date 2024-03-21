@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ProductsGrid: View {
-    
     private let products: [Product]
     private let adaptiveColumn = [GridItem(.adaptive(minimum: 150, maximum: 180))]
     
