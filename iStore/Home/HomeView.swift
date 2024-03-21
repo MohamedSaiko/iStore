@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @StateObject var homeViewModel = HomeViewModel(networkManager: NetworkManager())
+    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
     
     @State private var text = ""
     
@@ -24,7 +25,7 @@ struct HomeView: View {
                     
                     Spacer()
                 } else {
-                    ProductsGrid(products: homeViewModel.products)
+                    ProductsGrid(products: homeViewModel.products, userID: authenticationViewModel.user.id)
                 }
             }
             .searchable(text: $text)

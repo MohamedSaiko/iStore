@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct AddToCardButton: View {
-    
     private let action: () -> Void
-    
+
     init(action: @escaping () -> Void) {
         self.action = action
     }
@@ -19,7 +18,6 @@ struct AddToCardButton: View {
         Button {
             action()
         } label: {
-            
             HStack() {
                 Text("Add To Cart")
                     .foregroundColor(.white)

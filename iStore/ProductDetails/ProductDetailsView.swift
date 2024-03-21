@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ProductDetailsView: View {
-    
     @StateObject var productDetailsViewModel = ProductDetailsViewModel(
         networkManager: NetworkManager(),
         cartManager: CartNetworkManager(),
@@ -24,11 +23,18 @@ struct ProductDetailsView: View {
                          thumbnail: URL(fileURLWithPath: String()),
                          images: [URL]()))
     
+    private let productID: Int
+    private let userID: Int
+    
     @State private var isFavoriteTapped = false
-    var id: Int
+    
+    init(productID: Int, userID: Int) {
+        self.productID = productID
+        self.userID = userID
+    }
     
     var body: some View {
-        Group {
+        VStack {
             if productDetailsViewModel.isloading {
                 ProgressView()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -58,12 +64,14 @@ struct ProductDetailsView: View {
                         .frame(height: UIScreen.main.bounds.height / 4)
                         .padding()
                         
-                        AddToCardButton(action: productDetailsViewModel.addToCart)
-                            .frame(maxWidth: .infinity)
-                            .background(.pink)
-                            .clipShape(RoundedRectangle(cornerRadius: 15))
-                            .padding(.horizontal)
-                            .padding(.bottom)
+                        AddToCardButton() {
+                            productDetailsViewModel.addToCart(WithUserID: userID, productID: productID)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .background(.pink)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                        .padding(.horizontal)
+                        .padding(.bottom)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(.white)
@@ -83,7 +91,7 @@ struct ProductDetailsView: View {
             }
         }
         .task {
-            productDetailsViewModel.getProduct(with: id)
+            productDetailsViewModel.getProduct(with: productID)
         }
     }
 }

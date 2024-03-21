@@ -11,13 +11,15 @@ struct CategoriesView: View {
     
     @StateObject var categoryViewModel = CategoriesViewModel(networkManager: NetworkManager())
     
+    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
+    
     var body: some View {
         NavigationView {
             VStack {
                 if categoryViewModel.isloading {
                     ProgressView()
                 } else {
-                    ProductsGrid(products: categoryViewModel.products)
+                    ProductsGrid(products: categoryViewModel.products, userID: authenticationViewModel.user.id)
                 }
             }
             .navigationTitle(categories)
@@ -26,11 +28,5 @@ struct CategoriesView: View {
         .task {
             categoryViewModel.getProducts()
         }
-    }
-}
-
-struct Category_Previews: PreviewProvider {
-    static var previews: some View {
-        CategoriesView()
     }
 }
