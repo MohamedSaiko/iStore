@@ -16,7 +16,8 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             VStack() {
-                LocationButton()
+                LocationButton(address: authenticationViewModel.user.address.address, postalCode: authenticationViewModel.user.address.postalCode, city: authenticationViewModel.user.address.city, state: authenticationViewModel.user.address.state)
+                
                 if homeViewModel.isloading {
                     Spacer()
                     
