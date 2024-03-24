@@ -12,13 +12,14 @@ struct HomeView: View {
     @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
     
     @State private var text = ""
+    @State private var isloading = true
     
     var body: some View {
         NavigationView {
             VStack() {
                 LocationButton(address: authenticationViewModel.user.address.address, postalCode: authenticationViewModel.user.address.postalCode, city: authenticationViewModel.user.address.city, state: authenticationViewModel.user.address.state)
                 
-                if homeViewModel.isloading {
+                if isloading {
                     Spacer()
                     
                     ProgressView()
@@ -34,7 +35,12 @@ struct HomeView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .task {
-            homeViewModel.getProducts()
+            homeViewModel.getProducts() { data in
+                DispatchQueue.main.async {
+                    homeViewModel.products.append(contentsOf: data.products)
+                    isloading = false
+                }
+            }
         }
     }
 }
