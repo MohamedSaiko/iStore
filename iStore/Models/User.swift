@@ -18,10 +18,6 @@ struct User: Codable {
     let token: String
 }
 
-struct AuthenticatedUser: Codable {
-    let id: Int
-}
-
 enum CodingKeys: String, CodingKey {
     case userName = "username"
 }

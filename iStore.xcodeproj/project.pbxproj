@@ -21,6 +21,11 @@
 		419324422B8CDBDE0015C45D /* CartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419324412B8CDBDE0015C45D /* CartData.swift */; };
 		419324442B8D1CDF0015C45D /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419324432B8D1CDF0015C45D /* CartViewModel.swift */; };
 		41941A952B9F089D00B168A8 /* CartList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41941A942B9F089D00B168A8 /* CartList.swift */; };
+		419612442BA98B2300938360 /* AuthenticatedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419612432BA98B2300938360 /* AuthenticatedUser.swift */; };
+		419612462BA993D000938360 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419612452BA993D000938360 /* ProfileView.swift */; };
+		4196124B2BA9D62A00938360 /* PersonalDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196124A2BA9D62A00938360 /* PersonalDetailsView.swift */; };
+		4196124D2BA9D7F600938360 /* HomeAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196124C2BA9D7F600938360 /* HomeAddressView.swift */; };
+		4196124F2BA9DA4D00938360 /* ProfilePictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196124E2BA9DA4D00938360 /* ProfilePictureView.swift */; };
 		41C96C3E2B9C795C004511E8 /* CheckOutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C96C3D2B9C795C004511E8 /* CheckOutButton.swift */; };
 		41DC6E222B77DB3D0061D06A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DC6E212B77DB3D0061D06A /* ContentView.swift */; };
 		41F8DC032B871D46000582A1 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F8DBFA2B871D45000582A1 /* AuthenticationManager.swift */; };
@@ -61,6 +66,11 @@
 		419324412B8CDBDE0015C45D /* CartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartData.swift; sourceTree = "<group>"; };
 		419324432B8D1CDF0015C45D /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		41941A942B9F089D00B168A8 /* CartList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartList.swift; sourceTree = "<group>"; };
+		419612432BA98B2300938360 /* AuthenticatedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedUser.swift; sourceTree = "<group>"; };
+		419612452BA993D000938360 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		4196124A2BA9D62A00938360 /* PersonalDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDetailsView.swift; sourceTree = "<group>"; };
+		4196124C2BA9D7F600938360 /* HomeAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAddressView.swift; sourceTree = "<group>"; };
+		4196124E2BA9DA4D00938360 /* ProfilePictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureView.swift; sourceTree = "<group>"; };
 		41C96C3D2B9C795C004511E8 /* CheckOutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutButton.swift; sourceTree = "<group>"; };
 		41DC6E212B77DB3D0061D06A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		41F8DBFA2B871D45000582A1 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticationManager.swift; path = /Users/Ali/Desktop/HackingWithSwift/SaikoProjects/iStore/iStore/NetworkLayer/AuthenticationManager.swift; sourceTree = "<absolute>"; };
@@ -120,6 +130,7 @@
 				410BCA4E2BA5B1D40013F568 /* Navigation */,
 				41F8DC1D2B871E1F000582A1 /* Models */,
 				41F8DBF62B871D45000582A1 /* NetworkLayer */,
+				419612472BA993F800938360 /* Profile */,
 				4193243E2B8CCC530015C45D /* Cart */,
 				41F8DC142B871DCF000582A1 /* Categories */,
 				41F8DC322B871EDC000582A1 /* ProductDetails */,
@@ -172,6 +183,17 @@
 			path = Cart;
 			sourceTree = "<group>";
 		};
+		419612472BA993F800938360 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				419612452BA993D000938360 /* ProfileView.swift */,
+				4196124E2BA9DA4D00938360 /* ProfilePictureView.swift */,
+				4196124A2BA9D62A00938360 /* PersonalDetailsView.swift */,
+				4196124C2BA9D7F600938360 /* HomeAddressView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		41F8DBF62B871D45000582A1 /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				41F8DC1E2B871E1F000582A1 /* User.swift */,
+				419612432BA98B2300938360 /* AuthenticatedUser.swift */,
 				419324412B8CDBDE0015C45D /* CartData.swift */,
 				41F8DC1F2B871E1F000582A1 /* ProductsData.swift */,
 			);
@@ -299,10 +322,13 @@
 			files = (
 				415A0D5B2BA17EC800ECC38A /* UserNameView.swift in Sources */,
 				41F8DC3B2B871EDD000582A1 /* ProductDetailsViewModel.swift in Sources */,
+				4196124D2BA9D7F600938360 /* HomeAddressView.swift in Sources */,
 				415A0D632BA19AFC00ECC38A /* AuthenticationViewModel.swift in Sources */,
+				4196124B2BA9D62A00938360 /* PersonalDetailsView.swift in Sources */,
 				41F8DC042B871D46000582A1 /* NetworkManager.swift in Sources */,
 				41DC6E222B77DB3D0061D06A /* ContentView.swift in Sources */,
 				41F8DC402B871EDD000582A1 /* ProductDetailsTabView.swift in Sources */,
+				419612442BA98B2300938360 /* AuthenticatedUser.swift in Sources */,
 				41F8DC212B871E1F000582A1 /* ProductsData.swift in Sources */,
 				419324422B8CDBDE0015C45D /* CartData.swift in Sources */,
 				41F8DC192B871DCF000582A1 /* CategoriesView.swift in Sources */,
@@ -322,8 +348,10 @@
 				415A0D592BA17E6600ECC38A /* LoginButton.swift in Sources */,
 				419324442B8D1CDF0015C45D /* CartViewModel.swift in Sources */,
 				41F8DC3C2B871EDD000582A1 /* DescriptionView.swift in Sources */,
+				4196124F2BA9DA4D00938360 /* ProfilePictureView.swift in Sources */,
 				41F8DC032B871D46000582A1 /* AuthenticationManager.swift in Sources */,
 				41F8DC3A2B871EDD000582A1 /* BrandView.swift in Sources */,
+				419612462BA993D000938360 /* ProfileView.swift in Sources */,
 				41941A952B9F089D00B168A8 /* CartList.swift in Sources */,
 				4161881D2BA1681F00A96EB6 /* LoginView.swift in Sources */,
 				41F8DC0F2B871D82000582A1 /* HomeView.swift in Sources */,

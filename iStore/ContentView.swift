@@ -15,19 +15,14 @@ struct ContentView: View {
                     Image(systemName: "house.fill")
                 }
             
-            CategoriesView()
-                .tabItem {
-                    Image(systemName: "tray.fill")
-                }
-            
             CartView()
                 .tabItem {
                     Image(systemName: "bag.fill")
                 }
             
-            Text("account")
+            ProfileView()
                 .tabItem {
-                    Image(systemName: "line.3.horizontal")
+                    Image(systemName: "person.fill")
                 }
         }
         .accentColor(.pink)
