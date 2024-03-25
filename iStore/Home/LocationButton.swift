@@ -8,6 +8,18 @@
 import SwiftUI
 
 struct LocationButton: View {
+    private let address: String
+    private let postalCode: String
+    private let city: String
+    private let state: String
+    
+    init(address: String, postalCode: String, city: String, state: String) {
+        self.address = address
+        self.postalCode = postalCode
+        self.city = city
+        self.state = state
+    }
+    
     var body: some View {
         NavigationLink {
             Text("hello")
@@ -22,8 +34,13 @@ struct LocationButton: View {
                         .font(.system(.subheadline, design: .rounded))
                         .opacity(0.5)
                     
-                    Text("obour block 12")
-                        .font(.system(.headline, design: .rounded))
+                    VStack(alignment: .leading) {
+                        Text(address + ", ")
+                            .font(.system(.headline, design: .rounded))
+                        
+                        Text("\(postalCode) " + city + ", " + state)
+                            .font(.system(.headline, design: .rounded))
+                    }
                 }
                 
                 Spacer()
