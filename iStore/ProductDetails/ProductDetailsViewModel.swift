@@ -22,7 +22,7 @@ final class ProductDetailsViewModel: ObservableObject {
     }
     
     func getProduct(with id: Int) {
-        let url = singleProduct + "\(id)"
+        let url = singleProductURL + "\(id)"
         
         networkManager.loadData(withURL: url) { [weak self] (result: Result<Product,NetworkError>) in
             

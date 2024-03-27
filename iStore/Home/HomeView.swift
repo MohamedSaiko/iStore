@@ -11,7 +11,6 @@ struct HomeView: View {
     @StateObject var homeViewModel = HomeViewModel(networkManager: NetworkManager())
     @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
     
-    @State private var text = ""
     @State private var isloading = true
     
     var body: some View {
@@ -29,13 +28,23 @@ struct HomeView: View {
                     ProductsGrid(products: homeViewModel.products, userID: authenticationViewModel.user.id)
                 }
             }
-            .searchable(text: $text)
             .padding(.horizontal)
             .navigationTitle(iStore)
             .navigationBarTitleDisplayMode(.inline)
         }
+        .searchable(text: $homeViewModel.searchText)
+        .onChange(of: homeViewModel.searchProduct) { _ in
+            homeViewModel.products.removeAll()
+            
+            homeViewModel.showProducts { data in
+                DispatchQueue.main.async {
+                    homeViewModel.products.append(contentsOf: data.products)
+                    isloading = false
+                }
+            }
+        }
         .task {
-            homeViewModel.getProducts() { data in
+            homeViewModel.showProducts { data in
                 DispatchQueue.main.async {
                     homeViewModel.products.append(contentsOf: data.products)
                     isloading = false

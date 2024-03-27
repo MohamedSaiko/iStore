@@ -20,7 +20,7 @@ final class CategoriesViewModel: ObservableObject {
     
     func getProducts() {
         
-        let url = allProductsUrl
+        let url = allProductsURL
         
         networkManager.loadData(withURL: url) { [weak self] (result: Result<ProductsData,NetworkError>) in
             
