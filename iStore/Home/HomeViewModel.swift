@@ -21,7 +21,7 @@ final class HomeViewModel: ObservableObject {
         self.networkManager = networkManager
     }
     
-    func getProducts(completion: @escaping (ProductsData) -> Void) {
+    private func getProducts(completion: @escaping (ProductsData) -> Void) {
         let url = allProductsURL
         
         networkManager.loadData(withURL: url) { (result: Result<ProductsData,NetworkError>) in
@@ -35,7 +35,7 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
-    func getFilteredProducts(product: String, completion: @escaping (ProductsData) -> Void) {
+    private func getFilteredProducts(product: String, completion: @escaping (ProductsData) -> Void) {
         let url = filteredProductsURL + product
         
         networkManager.loadData(withURL: url) { (result: Result<ProductsData,NetworkError>) in

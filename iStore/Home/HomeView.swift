@@ -33,7 +33,7 @@ struct HomeView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .searchable(text: $homeViewModel.searchText)
-        .onChange(of: homeViewModel.searchProduct) { newValue in
+        .onChange(of: homeViewModel.searchProduct) { _ in
             homeViewModel.products.removeAll()
             
             homeViewModel.showProducts { data in
