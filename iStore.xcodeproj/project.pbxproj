@@ -73,8 +73,8 @@
 		4196124E2BA9DA4D00938360 /* ProfilePictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureView.swift; sourceTree = "<group>"; };
 		41C96C3D2B9C795C004511E8 /* CheckOutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutButton.swift; sourceTree = "<group>"; };
 		41DC6E212B77DB3D0061D06A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		41F8DBFA2B871D45000582A1 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticationManager.swift; path = /Users/Ali/Desktop/HackingWithSwift/SaikoProjects/iStore/iStore/NetworkLayer/AuthenticationManager.swift; sourceTree = "<absolute>"; };
-		41F8DBFB2B871D45000582A1 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = /Users/Ali/Desktop/HackingWithSwift/SaikoProjects/iStore/iStore/NetworkLayer/NetworkManager.swift; sourceTree = "<absolute>"; };
+		41F8DBFA2B871D45000582A1 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticationManager.swift; path = /Users/mohamedsayed/Desktop/iStore/iStore/NetworkLayer/AuthenticationManager.swift; sourceTree = "<absolute>"; };
+		41F8DBFB2B871D45000582A1 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = /Users/mohamedsayed/Desktop/iStore/iStore/NetworkLayer/NetworkManager.swift; sourceTree = "<absolute>"; };
 		41F8DC0A2B871D82000582A1 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewModel.swift; path = Home/HomeViewModel.swift; sourceTree = "<group>"; };
 		41F8DC0B2B871D82000582A1 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = Home/HomeView.swift; sourceTree = "<group>"; };
 		41F8DC0C2B871D82000582A1 /* LocationButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationButton.swift; path = Home/LocationButton.swift; sourceTree = "<group>"; };
@@ -416,7 +416,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -471,7 +471,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
