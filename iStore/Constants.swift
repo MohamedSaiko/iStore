@@ -16,8 +16,9 @@ let categories = "Categories"
 
 // MARK: Networking Constants
 
-let allProductsUrl = "https://dummyjson.com/products"
-let singleProduct = "https://dummyjson.com/products/"
+let allProductsURL = "https://dummyjson.com/products"
+let singleProductURL = "https://dummyjson.com/products/"
+let filteredProductsURL = "https://dummyjson.com/products/search?q="
 let limit = "/?limit=10&skip="
 
 let authenticationUrl = "https://dummyjson.com/auth/login"
