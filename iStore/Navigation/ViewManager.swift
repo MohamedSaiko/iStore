@@ -10,6 +10,7 @@ import SwiftUI
 struct ViewManager: View {
     @StateObject var navigationCoordinator: NavigationCoordinator
     @StateObject var authenticationViewModel: AuthenticationViewModel
+    @StateObject var locationDataManager: LocationDataManager
     
     var body: some View {
         switch navigationCoordinator.switchView {
@@ -22,6 +23,7 @@ struct ViewManager: View {
                 ContentView()
                     .environmentObject(navigationCoordinator)
                     .environmentObject(authenticationViewModel)
+                    .environmentObject(locationDataManager)
         }
     }
 }
