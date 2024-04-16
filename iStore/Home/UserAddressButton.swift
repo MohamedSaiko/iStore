@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LocationButton: View {
+struct UserAddressButton: View {
     private let address: String
     private let postalCode: String
     private let city: String
@@ -22,7 +22,7 @@ struct LocationButton: View {
     
     var body: some View {
         NavigationLink {
-            Text("hello")
+            LocationView()
         } label: {
             HStack(alignment: .center, spacing: 10) {
                 Image(systemName: "map.circle.fill")
