@@ -13,6 +13,7 @@ final class AuthenticationViewModel: ObservableObject {
     @Published var user: AuthenticatedUser
     @Published var showError = false
     @Published var showProgress = false
+    @Published var isGuest = false
     
     init(authenticationManager: AuthenticationManager, user: AuthenticatedUser) {
         self.authenticationManager = authenticationManager
