@@ -8,7 +8,6 @@
 import Foundation
 
 final class CartViewModel: ObservableObject {
-    
     private let networkManager: NetworkManager
     private let cartManager: CartNetworkManager
     
@@ -19,19 +18,15 @@ final class CartViewModel: ObservableObject {
         self.cartManager = cartManager
     }
     
-    func loadUserCarts(withUserId userID: Int) {
-        
+    func loadUserCarts(withUserId userID: Int, completion: @escaping (Result<Cart, NetworkError>) -> Void) {
         let url = userCartURL + "\(userID)"
         
         networkManager.loadData(withURL: url) { (result: Result<Cart,NetworkError>) in
             switch result {
-                case .success(let data):
-                    DispatchQueue.main.async {
-                        self.carts.removeAll()
-                        self.carts.append(contentsOf: data.carts)
-                    }
-                case .failure(let error):
-                    print(NetworkError.unknownError(error))
+            case .success(let data):
+                completion(.success(data))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }

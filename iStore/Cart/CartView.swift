@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct CartView: View {
-    
     @StateObject var cartViewModel = CartViewModel(networkManager: NetworkManager(), cartManager: CartNetworkManager())
-    
     @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
     
     var body: some View {
@@ -36,7 +34,17 @@ struct CartView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .task {
-            cartViewModel.loadUserCarts(withUserId: authenticationViewModel.user.id)
+            cartViewModel.loadUserCarts(withUserId: authenticationViewModel.user.id) { result in
+                switch result {
+                case .success(let data):
+                    DispatchQueue.main.async {
+                        cartViewModel.carts.removeAll()
+                        cartViewModel.carts.append(contentsOf: data.carts)
+                    }
+                case .failure(let error):
+                    print(NetworkError.unknownError(error))
+                }
+            }
         }
     }
 }
