@@ -36,6 +36,12 @@ final class LocationDataManager: NSObject, ObservableObject {
         case .authorizedWhenInUse:
             locationManager.requestLocation()
             
+        case .restricted:
+            break
+            
+        case .denied:
+            break
+            
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
             
@@ -49,18 +55,18 @@ final class LocationDataManager: NSObject, ObservableObject {
     func getUserAddress(completion: @escaping (CLPlacemark) -> Void) {
         guard let Location = self.locationManager.location else {
             return
-        }
-        
-        let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(Location) { (placemarks, error) in
-            guard let address = placemarks?.first, error == nil else {
-                return
             }
-            
-            completion(address)
+        
+            let geocoder = CLGeocoder()
+            geocoder.reverseGeocodeLocation(Location) { (placemarks, error) in
+                guard let address = placemarks?.first, error == nil else {
+                    return
+                }
+                
+                completion(address)
+            }
         }
     }
-}
 
 // MARK: CLLocationManagerDelegate
 
