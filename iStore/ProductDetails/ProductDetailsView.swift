@@ -49,7 +49,6 @@ struct ProductDetailsView: View {
                     
                     ScrollView(.vertical, showsIndicators: false) {
                         VStack(alignment: .leading) {
-                            
                             BrandView(product: productDetailsViewModel.product)
                             
                             Spacer()
@@ -91,7 +90,17 @@ struct ProductDetailsView: View {
             }
         }
         .task {
-            productDetailsViewModel.getProduct(with: productID)
+            productDetailsViewModel.getProduct(with: productID) { result in
+                switch result {
+                case .success(let product):
+                    DispatchQueue.main.async {
+                        productDetailsViewModel.product = product
+                        productDetailsViewModel.isloading = false
+                    }
+                case .failure(let error):
+                    print(NetworkError.unknownError(error))
+                }
+            }
         }
     }
 }

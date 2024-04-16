@@ -8,7 +8,6 @@
 import Foundation
 
 final class ProductDetailsViewModel: ObservableObject {
-    
     private let networkManager: NetworkManager
     private let cartManager: CartNetworkManager
     
@@ -21,24 +20,16 @@ final class ProductDetailsViewModel: ObservableObject {
         self.product = product
     }
     
-    func getProduct(with id: Int) {
+    func getProduct(with id: Int, completion: @escaping (Result<Product, NetworkError>) -> Void) {
         let url = singleProductURL + "\(id)"
         
-        networkManager.loadData(withURL: url) { [weak self] (result: Result<Product,NetworkError>) in
-            
-            guard let self = self else {
-                return
-            }
-            
+        networkManager.loadData(withURL: url) { (result: Result<Product,NetworkError>) in
             switch result {
-                case .success(let data):
-                    DispatchQueue.main.async {
-                        self.product = data
-                        self.isloading = false
-                    }
-                    
-                case .failure(let error):
-                    print(NetworkError.unknownError(error))
+            case .success(let data):
+                completion(.success(data))
+                
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }
