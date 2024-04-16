@@ -55,9 +55,20 @@ struct LoginView: View {
                     authenticationViewModel.showProgress = true
                     authenticationViewModel.showError = false
                     
-                    authenticationViewModel.authenticateUser(userName: userName, password: password) {
-                        navigationCoordinator.switchView = .contentView
-                        authenticationViewModel.showProgress = false
+                    authenticationViewModel.authenticateUser(userName: userName, password: password) { result in
+                        switch result {
+                        case .success(let currentUser):
+                            DispatchQueue.main.async {
+                                authenticationViewModel.user = currentUser
+                                navigationCoordinator.switchView = .contentView
+                                authenticationViewModel.showProgress = false
+                            }
+                            
+                        case .failure(_):
+                            DispatchQueue.main.async {
+                                authenticationViewModel.showError = true
+                            }
+                        }
                     }
                 }
                 

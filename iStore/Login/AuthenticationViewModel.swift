@@ -20,26 +20,20 @@ final class AuthenticationViewModel: ObservableObject {
         self.user = user
     }
     
-    func authenticateUser(userName: String, password: String, completion: @escaping () -> Void) {
+    func authenticateUser(userName: String, password: String, completion: @escaping (Result<AuthenticatedUser, AuthenticationError>) -> Void) {
         authenticationManager.authenticate(userName: userName, password: password) { [weak self] result in
-            
-            guard let self = self else {
+            guard let self else {
                 return
             }
             
             switch result {
-                case .success(let token):
-                    self.authenticationManager.getCurrentUser(withToken: token) { currentUser in
-                        DispatchQueue.main.async {
-                            self.user = currentUser
-                            completion()
-                        }
-                    }
-                    
-                case .failure(_):
-                    DispatchQueue.main.async {
-                        self.showError = true
-                    }
+            case .success(let token):
+                self.authenticationManager.getCurrentUser(withToken: token) { currentUser in
+                    completion(.success(currentUser))
+                }
+                
+            case .failure(_):
+                completion(.failure(AuthenticationError.invalidCurrentUserURL))
             }
         }
     }
