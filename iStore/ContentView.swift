@@ -25,6 +25,6 @@ struct ContentView: View {
                     Image(systemName: "person.fill")
                 }
         }
-        .accentColor(.pink)
+        .tint(.pink)
     }
 }
