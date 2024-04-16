@@ -16,8 +16,7 @@ enum NetworkError: Error {
 }
 
 struct NetworkManager {
-    
-    func loadData<T: Decodable>(withURL urlString: String, completion: @ escaping (Result<T, NetworkError>) -> Void) {
+    func loadData<T: Decodable>(withURL urlString: String, completion: @escaping (Result<T, NetworkError>) -> Void) {
         
         let url = URL(string: urlString)
         
