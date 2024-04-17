@@ -36,12 +36,6 @@ final class LocationDataManager: NSObject, ObservableObject {
         case .authorizedWhenInUse:
             locationManager.requestLocation()
             
-        case .restricted:
-            break
-            
-        case .denied:
-            break
-            
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
             
