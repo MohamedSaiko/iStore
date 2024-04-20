@@ -15,7 +15,7 @@ struct CartView: View {
         NavigationView {
             VStack() {
                 if cartViewModel.carts.isEmpty {
-                    ProgressView()
+                    ContentUnavailableView("No products", systemImage: "cart", description: Text("You don't have any productss yet."))
                 } else {
                     CartList(carts: cartViewModel.carts)
                         .listStyle(.plain)
