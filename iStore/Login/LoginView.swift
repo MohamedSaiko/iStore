@@ -63,6 +63,7 @@ struct LoginView: View {
                 
                 Button("Continue as a Guest") {
                     navigationCoordinator.switchView = .contentView
+                    authenticationViewModel.isGuest = true
                 }
             }
             .padding()
