@@ -11,13 +11,18 @@ struct ProfileView: View {
     @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
     
     var body: some View {
-        Form {
-            ProfilePictureView(image: authenticationViewModel.user.image)
-            
-            PersonalDetailsView(userName: authenticationViewModel.user.username, firstName: authenticationViewModel.user.firstName, lastName: authenticationViewModel.user.lastName, email: authenticationViewModel.user.email, phone: authenticationViewModel.user.phone)
-            
-            Section(header: Text("Home Address")) {
-                HomeAddressView(address: authenticationViewModel.user.address.address, city: authenticationViewModel.user.address.city, postalCode: authenticationViewModel.user.address.postalCode, state: authenticationViewModel.user.address.state)
+        if authenticationViewModel.isGuest {
+            ContentUnavailableView("No Account", systemImage: "person", description: Text("Please Login to Show your Account."))
+                .symbolVariant(.slash)
+        } else {
+            Form {
+                ProfilePictureView(image: authenticationViewModel.user.image)
+                
+                PersonalDetailsView(userName: authenticationViewModel.user.username, firstName: authenticationViewModel.user.firstName, lastName: authenticationViewModel.user.lastName, email: authenticationViewModel.user.email, phone: authenticationViewModel.user.phone)
+                
+                Section(header: Text("Home Address")) {
+                    HomeAddressView(address: authenticationViewModel.user.address.address, city: authenticationViewModel.user.address.city, postalCode: authenticationViewModel.user.address.postalCode, state: authenticationViewModel.user.address.state)
+                }
             }
         }
     }
