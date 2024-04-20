@@ -17,7 +17,7 @@ struct ContentView: View {
             
             CartView()
                 .tabItem {
-                    Image(systemName: "bag.fill")
+                    Image(systemName: "cart")
                 }
             
             ProfileView()
