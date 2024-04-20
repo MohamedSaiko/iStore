@@ -26,8 +26,6 @@ struct ProductDetailsView: View {
     private let productID: Int
     private let userID: Int
     
-    @State private var isFavoriteTapped = false
-    
     init(productID: Int, userID: Int) {
         self.productID = productID
         self.userID = userID
@@ -79,14 +77,6 @@ struct ProductDetailsView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(.black)
-            }
-        }
-        .toolbar() {
-            Button {
-                print("favorite tapped")
-                isFavoriteTapped.toggle()
-            } label: {
-                Image(systemName: isFavoriteTapped ? "heart.fill" : "heart")
             }
         }
         .task {
