@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CheckOutButton: View {
-    
     private let total: Int
     private let action: () -> Void
     

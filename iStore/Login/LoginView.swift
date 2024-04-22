@@ -8,16 +8,8 @@
 import SwiftUI
 
 struct LoginView: View {
-    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
-    @EnvironmentObject var navigationCoordinator: NavigationCoordinator
-    
-    @State private var userName: String
-    @State private var password: String
-    
-    init(userName: String, password: String) {
-        self.userName = userName
-        self.password = password
-    }
+    @EnvironmentObject private var authenticationViewModel: AuthenticationViewModel
+    @EnvironmentObject private var navigationCoordinator: NavigationCoordinator
     
     var body: some View {
         VStack(alignment: .leading, spacing: 24) {
@@ -37,9 +29,9 @@ struct LoginView: View {
             Spacer()
             
             VStack(spacing: 24) {
-                UserNameView(userName: $userName)
+                UserNameView(userName: $authenticationViewModel.userName)
                 
-                PasswordView(password: $password)
+                PasswordView(password: $authenticationViewModel.password)
                 
                 if authenticationViewModel.showError {
                     Text("Please, Enter a valid UserName and Password!")
@@ -55,15 +47,27 @@ struct LoginView: View {
                     authenticationViewModel.showProgress = true
                     authenticationViewModel.showError = false
                     
-                    authenticationViewModel.authenticateUser(userName: userName, password: password) {
-                        navigationCoordinator.switchView = .contentView
-                        authenticationViewModel.showProgress = false
+                    authenticationViewModel.authenticateUser() { result in
+                        switch result {
+                        case .success(let currentUser):
+                            DispatchQueue.main.async {
+                                authenticationViewModel.user = currentUser
+                                navigationCoordinator.user = currentUser
+                                navigationCoordinator.switchView = .contentView
+                                authenticationViewModel.showProgress = false
+                            }
+                            
+                        case .failure(_):
+                            DispatchQueue.main.async {
+                                authenticationViewModel.showError = true
+                            }
+                        }
                     }
                 }
                 
                 Button("Continue as a Guest") {
                     navigationCoordinator.switchView = .contentView
-                    authenticationViewModel.isGuest = true
+                    navigationCoordinator.isGuest = true
                 }
             }
             .padding()

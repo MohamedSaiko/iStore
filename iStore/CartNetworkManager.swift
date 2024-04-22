@@ -39,7 +39,6 @@ struct CartNetworkManager {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let task = URLSession.shared.uploadTask(with: request, from: uploadData) { data, response , error in
-            
             if error != nil {
                 print (CartRequestError.invalidCart)
                 return

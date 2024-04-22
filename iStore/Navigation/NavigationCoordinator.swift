@@ -14,4 +14,10 @@ enum CurrentView {
 
 final class NavigationCoordinator: ObservableObject {
     @Published var switchView = CurrentView.loginView
+    @Published var user: AuthenticatedUser
+    @Published var isGuest = false
+    
+    init(user: AuthenticatedUser) {
+        self.user = user
+    }
 }

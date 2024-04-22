@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct BrandView: View {
+    private let product: Product
     
-    var product: Product
+    init(product: Product) {
+        self.product = product
+    }
     
     var body: some View {
         HStack(alignment: .center, spacing: 2) {

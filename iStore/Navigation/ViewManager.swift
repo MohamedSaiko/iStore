@@ -14,16 +14,16 @@ struct ViewManager: View {
     
     var body: some View {
         switch navigationCoordinator.switchView {
-            case .loginView:
-                LoginView(userName: "", password: "")
-                    .environmentObject(navigationCoordinator)
-                    .environmentObject(authenticationViewModel)
-                
-            case .contentView:
-                ContentView()
-                    .environmentObject(navigationCoordinator)
-                    .environmentObject(authenticationViewModel)
-                    .environmentObject(locationDataManager)
+        case .loginView:
+            LoginView()
+                .environmentObject(navigationCoordinator)
+                .environmentObject(authenticationViewModel)
+            
+        case .contentView:
+            ContentView(user: navigationCoordinator.user, isGuest: navigationCoordinator.isGuest)
+                .environmentObject(navigationCoordinator)
+                .environmentObject(authenticationViewModel)
+                .environmentObject(locationDataManager)
         }
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProductDetailsView: View {
-    @StateObject var productDetailsViewModel = ProductDetailsViewModel(
+    @StateObject private let productDetailsViewModel = ProductDetailsViewModel(
         networkManager: NetworkManager(),
         cartManager: CartNetworkManager(),
         product: Product(id: Int(),
@@ -25,8 +25,6 @@ struct ProductDetailsView: View {
     
     private let productID: Int
     private let userID: Int
-    
-    @State private var isFavoriteTapped = false
     
     init(productID: Int, userID: Int) {
         self.productID = productID
@@ -49,7 +47,6 @@ struct ProductDetailsView: View {
                     
                     ScrollView(.vertical, showsIndicators: false) {
                         VStack(alignment: .leading) {
-                            
                             BrandView(product: productDetailsViewModel.product)
                             
                             Spacer()
@@ -82,16 +79,18 @@ struct ProductDetailsView: View {
                 .background(.black)
             }
         }
-        .toolbar() {
-            Button {
-                print("favorite tapped")
-                isFavoriteTapped.toggle()
-            } label: {
-                Image(systemName: isFavoriteTapped ? "heart.fill" : "heart")
-            }
-        }
         .task {
-            productDetailsViewModel.getProduct(with: productID)
+            productDetailsViewModel.getProduct(with: productID) { result in
+                switch result {
+                case .success(let product):
+                    DispatchQueue.main.async {
+                        productDetailsViewModel.product = product
+                        productDetailsViewModel.isloading = false
+                    }
+                case .failure(let error):
+                    print(NetworkError.unknownError(error))
+                }
+            }
         }
     }
 }

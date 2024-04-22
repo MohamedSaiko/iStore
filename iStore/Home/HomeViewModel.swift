@@ -12,6 +12,7 @@ final class HomeViewModel: ObservableObject {
     
     @Published var products = [Product]()
     @Published var searchText = ""
+    @Published var isloading = true
     
     var searchProduct: String {
         searchText.lowercased()
@@ -26,11 +27,11 @@ final class HomeViewModel: ObservableObject {
         
         networkManager.loadData(withURL: url) { (result: Result<ProductsData,NetworkError>) in
             switch result {
-                case .success(let data):
-                    completion(data)
-                    
-                case .failure(let error):
-                    print(NetworkError.unknownError(error))
+            case .success(let data):
+                completion(data)
+                
+            case .failure(let error):
+                print(NetworkError.unknownError(error))
             }
         }
     }
@@ -40,11 +41,11 @@ final class HomeViewModel: ObservableObject {
         
         networkManager.loadData(withURL: url) { (result: Result<ProductsData,NetworkError>) in
             switch result {
-                case .success(let data):
-                    completion(data)
-                    
-                case .failure(let error):
-                    print(NetworkError.unknownError(error))
+            case .success(let data):
+                completion(data)
+                
+            case .failure(let error):
+                print(NetworkError.unknownError(error))
             }
         }
     }

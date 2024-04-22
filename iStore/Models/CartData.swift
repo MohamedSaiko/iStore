@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct Cart: Decodable {
     let carts: [CartData]
 }

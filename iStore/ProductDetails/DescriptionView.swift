@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct DescriptionView: View {
+    private let product: Product
     
-    var product: Product
+    init(product: Product) {
+        self.product = product
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {

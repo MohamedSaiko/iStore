@@ -8,29 +8,63 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var homeViewModel = HomeViewModel(networkManager: NetworkManager())
-    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
-    @EnvironmentObject var locationDataManager: LocationDataManager
+    @StateObject private var homeViewModel = HomeViewModel(networkManager: NetworkManager())
     
-    @State private var isloading = true
+    private let id: Int
+    private let homeAddress: String
+    private let homePostalCode: String
+    private let homeCity: String
+    private let homeState: String
+    private let homeLatitude: Double
+    private let homeLongitude: Double
+    
+    private let currentAddress: String
+    private let currentPostalCode: String
+    private let currentCity: String
+    private let currentState: String
+    private let currentLatitude: Double
+    private let currentLongitude: Double
+    
+    private let isCurrentLocation: Bool
+    private let isGuest: Bool
+    private let getLocationPermission: () -> Void
+    
+    init(id: Int, homeAddress: String, homePostalCode: String, homeCity: String, homeState: String, homeLatitude: Double, homeLongitude: Double, currentAddress: String, currentPostalCode: String, currentCity: String, currentState: String, currentLatitude: Double, currentLongitude: Double, isCurrentLocation: Bool, isGuest: Bool, getLocationPermission: @escaping () -> Void) {
+        self.id = id
+        self.homeAddress = homeAddress
+        self.homePostalCode = homePostalCode
+        self.homeCity = homeCity
+        self.homeState = homeState
+        self.homeLatitude = homeLatitude
+        self.homeLongitude = homeLongitude
+        self.currentAddress = currentAddress
+        self.currentPostalCode = currentPostalCode
+        self.currentCity = currentCity
+        self.currentState = currentState
+        self.currentLatitude = currentLatitude
+        self.currentLongitude = currentLongitude
+        self.isCurrentLocation = isCurrentLocation
+        self.isGuest = isGuest
+        self.getLocationPermission = getLocationPermission
+    }
     
     var body: some View {
         NavigationStack {
             VStack() {
-                if authenticationViewModel.isGuest || locationDataManager.isCurrentLocation {
-                    UserAddressButton(address: locationDataManager.address, postalCode: locationDataManager.postalCode, city: locationDataManager.city, state: locationDataManager.state, latitude: locationDataManager.latitude, longitude: locationDataManager.longitude)
+                if isGuest || isCurrentLocation {
+                    UserAddressButton(address: currentAddress, postalCode: currentPostalCode, city: currentCity, state: currentState, latitude: currentLatitude, longitude: currentLongitude)
                 } else {
-                    UserAddressButton(address: authenticationViewModel.user.address.address, postalCode: authenticationViewModel.user.address.postalCode, city: authenticationViewModel.user.address.city, state: authenticationViewModel.user.address.state, latitude: authenticationViewModel.user.address.coordinates.lat, longitude: authenticationViewModel.user.address.coordinates.lng)
+                    UserAddressButton(address: homeAddress, postalCode: homePostalCode, city: homeCity, state: homeState, latitude: homeLatitude, longitude: homeLongitude)
                 }
                 
-                if isloading {
+                if homeViewModel.isloading {
                     Spacer()
                     
                     ProgressView()
                     
                     Spacer()
                 } else {
-                    ProductsGrid(products: homeViewModel.products, userID: authenticationViewModel.user.id)
+                    ProductsGrid(products: homeViewModel.products, userID: id)
                 }
             }
             .padding(.horizontal)
@@ -44,18 +78,18 @@ struct HomeView: View {
             homeViewModel.showProducts { data in
                 DispatchQueue.main.async {
                     homeViewModel.products.append(contentsOf: data.products)
-                    isloading = false
+                    homeViewModel.isloading = false
                 }
             }
         }
         .onAppear() {
-            locationDataManager.requestUserLocationPermission()
+            getLocationPermission()
         }
         .task {
             homeViewModel.showProducts { data in
                 DispatchQueue.main.async {
                     homeViewModel.products.append(contentsOf: data.products)
-                    isloading = false
+                    homeViewModel.isloading = false
                 }
             }
         }

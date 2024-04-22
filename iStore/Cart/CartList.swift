@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CartList: View {
-    
     private let carts: [CartData]
     
     init(carts: [CartData]) {

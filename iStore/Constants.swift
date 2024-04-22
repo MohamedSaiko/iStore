@@ -6,13 +6,9 @@
 //
 
 import Foundation
-
-// MARK: Colors
-
 // MARK: NavigationBar Titles
 
 let iStore = "iStore"
-let categories = "Categories"
 
 // MARK: Networking Constants
 
@@ -26,4 +22,3 @@ let userURL = "https://dummyjson.com/auth/me"
 
 let addToCartURL = "https://dummyjson.com/carts/add"
 let userCartURL = "https://dummyjson.com/carts/user/"
-
