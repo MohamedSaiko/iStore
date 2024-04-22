@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProductDetailsView: View {
-    @StateObject private var productDetailsViewModel = ProductDetailsViewModel(
+    @StateObject private let productDetailsViewModel = ProductDetailsViewModel(
         networkManager: NetworkManager(),
         cartManager: CartNetworkManager(),
         product: Product(id: Int(),
