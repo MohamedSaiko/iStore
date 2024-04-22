@@ -11,16 +11,19 @@ final class AuthenticationViewModel: ObservableObject {
     private let authenticationManager: AuthenticationManager
     
     @Published var user: AuthenticatedUser
+    @Published var userName: String
+    @Published var password: String
     @Published var showError = false
     @Published var showProgress = false
-    @Published var isGuest = false
     
-    init(authenticationManager: AuthenticationManager, user: AuthenticatedUser) {
+    init(authenticationManager: AuthenticationManager, user: AuthenticatedUser, userName: String, password: String) {
         self.authenticationManager = authenticationManager
         self.user = user
+        self.userName = userName
+        self.password = password
     }
     
-    func authenticateUser(userName: String, password: String, completion: @escaping (Result<AuthenticatedUser, AuthenticationError>) -> Void) {
+    func authenticateUser(completion: @escaping (Result<AuthenticatedUser, AuthenticationError>) -> Void) {
         authenticationManager.authenticate(userName: userName, password: password) { [weak self] result in
             guard let self else {
                 return
