@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct CartView: View {
-    @StateObject var cartViewModel = CartViewModel(networkManager: NetworkManager(), cartManager: CartNetworkManager())
-    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
+    @StateObject private var cartViewModel = CartViewModel(networkManager: NetworkManager(), cartManager: CartNetworkManager())
+    private let id: Int
+    
+    init(id: Int) {
+        self.id = id
+    }
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack() {
                 if cartViewModel.carts.isEmpty {
                     ContentUnavailableView("No products", systemImage: "cart", description: Text("You don't have any productss yet."))
@@ -34,7 +38,7 @@ struct CartView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .task {
-            cartViewModel.loadUserCarts(withUserId: authenticationViewModel.user.id) { result in
+            cartViewModel.loadUserCarts(withUserId: id) { result in
                 switch result {
                 case .success(let data):
                     DispatchQueue.main.async {
